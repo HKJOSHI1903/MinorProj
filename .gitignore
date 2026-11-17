@@ -1,5 +1,13 @@
-# Dataset (download with scripts/download_data.py)
-data/
+# Datasets (download with scripts/download_data.py); the advice file is kept
+data/*
+!data/treatment_advice.json
+
+# Website dependencies and build output
+web/node_modules/
+web/dist/
+
+# Secrets
+.env
 
 # Python
 __pycache__/

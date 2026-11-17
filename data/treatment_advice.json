@@ -1,0 +1,491 @@
+{
+  "_meta": {
+    "disclaimer": "General advice only. Products, doses and waiting periods before harvest differ by crop, state and season. Read the product label and confirm with your local Krishi Vigyan Kendra (KVK) or agriculture officer before treating the crop.",
+    "note": "Keys are PlantVillage class names. 'organic' lists cultural and organic options, 'chemical' lists the active ingredients commonly recommended. No doses are given on purpose."
+  },
+  "healthy": {
+    "organic": [
+      "Keep checking the leaves every few days, especially after rain.",
+      "Water at the base of the plant, in the morning.",
+      "Remove weeds and fallen leaves from the field.",
+      "Add compost or farmyard manure to keep the soil healthy."
+    ],
+    "prevention": [
+      "Rotate crops every season.",
+      "Use certified seed or healthy seedlings.",
+      "Keep enough space between plants so air can move."
+    ]
+  },
+  "classes": {
+    "Apple___Apple_scab": {
+      "type": "fungus",
+      "cause": "Fungus (Venturia inaequalis). Spreads in cool, wet spring weather from infected fallen leaves.",
+      "symptoms": "Olive-green to black velvety spots on leaves and fruit. Leaves curl and drop early; fruit becomes scabby and cracked.",
+      "organic": [
+        "Collect and destroy fallen leaves and infected fruit.",
+        "Spray wettable sulphur or lime sulphur from bud break, repeating after rain.",
+        "Prune the tree so the leaves dry quickly."
+      ],
+      "chemical": [
+        "Protective fungicide such as captan or mancozeb from bud break.",
+        "Myclobutanil or difenoconazole if infection has already started."
+      ],
+      "prevention": [
+        "Plant scab-resistant varieties where available.",
+        "Clear all leaf litter from the orchard in autumn.",
+        "Avoid overhead irrigation."
+      ]
+    },
+    "Apple___Black_rot": {
+      "type": "fungus",
+      "cause": "Fungus (Botryosphaeria obtusa). Survives in dead wood, cankers and dried fruit left on the tree.",
+      "symptoms": "Purple spots on leaves that become brown with a purple edge (frog-eye leaf spot). Fruit develops firm brown-black rot with rings.",
+      "organic": [
+        "Cut out dead and cankered branches well below the damaged wood and burn them.",
+        "Remove all dried, shrivelled fruit from the tree.",
+        "Spray Bordeaux mixture or another copper product."
+      ],
+      "chemical": [
+        "Captan or thiophanate-methyl from the pink bud stage onward."
+      ],
+      "prevention": [
+        "Keep trees healthy with proper watering and fertiliser.",
+        "Remove prunings and fallen fruit from the orchard.",
+        "Protect the trunk from injuries and sunburn."
+      ]
+    },
+    "Apple___Cedar_apple_rust": {
+      "type": "fungus",
+      "cause": "Fungus (Gymnosporangium juniperi-virginianae). It needs both apple and juniper (cedar) trees to complete its life cycle.",
+      "symptoms": "Bright yellow-orange spots on the upper leaf surface, later with small tube-like growths underneath. Leaves may drop early.",
+      "organic": [
+        "Remove juniper or cedar trees close to the orchard, or cut off the galls on them in winter.",
+        "Spray sulphur from the pink bud stage.",
+        "Remove badly infected leaves."
+      ],
+      "chemical": [
+        "Myclobutanil or mancozeb from the pink bud stage until about a month after petal fall."
+      ],
+      "prevention": [
+        "Plant rust-resistant apple varieties.",
+        "Do not plant apples near juniper or cedar trees."
+      ]
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "type": "fungus",
+      "cause": "Fungus (Podosphaera clandestina). Favoured by warm days, cool nights and high humidity.",
+      "symptoms": "White powdery patches on young leaves, which curl upward and become distorted. Fruit can also be covered.",
+      "organic": [
+        "Spray wettable sulphur, potassium bicarbonate or neem oil at the first sign.",
+        "Cut off and destroy heavily infected shoots.",
+        "Prune to open the canopy."
+      ],
+      "chemical": [
+        "Myclobutanil or trifloxystrobin at the first sign of disease."
+      ],
+      "prevention": [
+        "Avoid too much nitrogen fertiliser.",
+        "Avoid overhead irrigation late in the day.",
+        "Remove water shoots from the centre of the tree."
+      ]
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "type": "fungus",
+      "cause": "Fungus (Cercospora zeae-maydis). Survives on maize residue and spreads in warm, humid weather.",
+      "symptoms": "Long, narrow, rectangular grey-to-tan spots that run between the leaf veins. Spots join together and the leaf dries up.",
+      "organic": [
+        "Rotate with a pulse or oilseed crop for at least one season.",
+        "Plough in or remove maize residue after harvest.",
+        "Avoid very dense planting."
+      ],
+      "chemical": [
+        "Azoxystrobin or propiconazole if disease appears before tasselling on a susceptible hybrid."
+      ],
+      "prevention": [
+        "Choose resistant hybrids.",
+        "Avoid growing maize after maize in the same field.",
+        "Give balanced fertiliser, especially potash."
+      ]
+    },
+    "Corn_(maize)___Common_rust_": {
+      "type": "fungus",
+      "cause": "Fungus (Puccinia sorghi). Spores are carried by wind; cool, moist weather favours it.",
+      "symptoms": "Small, raised, reddish-brown powdery pustules scattered on both sides of the leaf.",
+      "organic": [
+        "Light rust usually needs no treatment; most hybrids tolerate it.",
+        "Remove volunteer maize plants and grassy weeds.",
+        "Sow early so the crop matures before rust builds up."
+      ],
+      "chemical": [
+        "Mancozeb or propiconazole only if pustules cover the leaves early in the season."
+      ],
+      "prevention": [
+        "Plant rust-resistant hybrids.",
+        "Avoid late sowing."
+      ]
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "type": "fungus",
+      "cause": "Fungus (Exserohilum turcicum). Survives on crop residue; spreads in moderate temperatures with long periods of dew.",
+      "symptoms": "Long, cigar-shaped grey-green to tan lesions, 2 to 15 cm long, starting on the lower leaves.",
+      "organic": [
+        "Remove badly infected lower leaves in small plots.",
+        "Bury or remove maize residue after harvest.",
+        "Rotate crops."
+      ],
+      "chemical": [
+        "Mancozeb, azoxystrobin or propiconazole if lesions reach the leaves around the ear before silking."
+      ],
+      "prevention": [
+        "Use resistant hybrids.",
+        "Avoid continuous maize in the same field.",
+        "Keep recommended spacing between plants."
+      ]
+    },
+    "Grape___Black_rot": {
+      "type": "fungus",
+      "cause": "Fungus (Guignardia bidwellii). Survives in mummified berries and infected canes; spreads in warm, rainy weather.",
+      "symptoms": "Small brown circular spots with dark edges on leaves. Berries turn brown, shrivel and become hard black mummies.",
+      "organic": [
+        "Remove and destroy all mummified berries, infected leaves and canes.",
+        "Spray Bordeaux mixture or another copper product.",
+        "Open the canopy so leaves and bunches dry quickly."
+      ],
+      "chemical": [
+        "Mancozeb, captan or myclobutanil from early shoot growth until the berries start to ripen."
+      ],
+      "prevention": [
+        "Clean the vine and the ground during winter pruning.",
+        "Train vines off the ground on a trellis.",
+        "Control weeds under the vines."
+      ]
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "type": "fungus",
+      "cause": "A group of wood-rotting fungi that enter through pruning wounds and grow slowly inside the trunk.",
+      "symptoms": "Tiger-stripe pattern on leaves (yellow or red areas between the veins that dry out). Small dark spots on berries. Vines may suddenly wilt.",
+      "organic": [
+        "Cut out infected arms or trunks well below the stained wood and retrain a healthy shoot.",
+        "Remove dead vines and burn the wood.",
+        "Apply Trichoderma paste on fresh pruning wounds."
+      ],
+      "chemical": [
+        "No fungicide cures an infected vine.",
+        "Seal large pruning wounds with a wound paint containing a fungicide."
+      ],
+      "prevention": [
+        "Prune in dry weather.",
+        "Disinfect pruning tools between vines.",
+        "Avoid water stress and over-cropping."
+      ]
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "type": "fungus",
+      "cause": "Fungus (Pseudocercospora vitis). Appears late in the season in warm, humid conditions.",
+      "symptoms": "Irregular dark brown spots on leaves, often with a yellow halo. Badly affected leaves dry and fall early.",
+      "organic": [
+        "Remove and destroy fallen infected leaves.",
+        "Spray Bordeaux mixture or another copper product when spots first appear.",
+        "Remove extra leaves to open the canopy."
+      ],
+      "chemical": [
+        "Mancozeb or copper oxychloride when the spots first appear."
+      ],
+      "prevention": [
+        "Avoid wetting the leaves when irrigating.",
+        "Keep the vineyard free of old leaf litter."
+      ]
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "type": "bacteria",
+      "cause": "Bacterium (Candidatus Liberibacter) spread by a small insect, the Asian citrus psyllid, and by infected planting material.",
+      "symptoms": "Blotchy, uneven yellowing of leaves. Fruit stays small, lopsided, green at the bottom and tastes bitter. Twigs die back.",
+      "organic": [
+        "There is no cure. Remove and destroy infected trees so the disease does not spread.",
+        "Spray neem oil and use yellow sticky traps to reduce psyllids.",
+        "Encourage natural enemies such as ladybird beetles."
+      ],
+      "chemical": [
+        "Control psyllids with imidacloprid or thiamethoxam when new leaves are growing."
+      ],
+      "prevention": [
+        "Buy only certified disease-free plants from a registered nursery.",
+        "Inspect trees regularly for psyllids and blotchy leaves.",
+        "Report suspected cases to the local agriculture office."
+      ]
+    },
+    "Peach___Bacterial_spot": {
+      "type": "bacteria",
+      "cause": "Bacterium (Xanthomonas arboricola pv. pruni). Spreads by wind-driven rain in warm weather.",
+      "symptoms": "Small, angular, water-soaked spots on leaves that turn purple-brown and fall out, leaving shot holes. Fruit gets sunken, cracked spots.",
+      "organic": [
+        "Spray a copper product at leaf fall and before bud swell.",
+        "Prune out twigs with cankers in dry weather.",
+        "Use windbreaks to reduce wind-driven rain."
+      ],
+      "chemical": [
+        "Copper-based bactericide in the dormant season; only low rates on leaves, because copper can burn peach foliage.",
+        "Oxytetracycline is used in some regions; follow local recommendations."
+      ],
+      "prevention": [
+        "Plant resistant varieties.",
+        "Avoid excess nitrogen fertiliser.",
+        "Do not use overhead irrigation."
+      ]
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "type": "bacteria",
+      "cause": "Bacterium (Xanthomonas species). Comes in on infected seed or seedlings and spreads by rain splash.",
+      "symptoms": "Small, dark, water-soaked spots on leaves that turn brown with a yellow edge. Leaves drop; fruit gets raised scabby spots.",
+      "organic": [
+        "Remove and destroy badly infected plants.",
+        "Spray a copper product at the first sign.",
+        "Do not work among the plants when they are wet."
+      ],
+      "chemical": [
+        "Copper oxychloride or copper hydroxide, often mixed with mancozeb, every 7 to 10 days in wet weather."
+      ],
+      "prevention": [
+        "Use certified disease-free seed and healthy seedlings.",
+        "Rotate with non-solanaceous crops for 2 to 3 years.",
+        "Use drip irrigation."
+      ]
+    },
+    "Potato___Early_blight": {
+      "type": "fungus",
+      "cause": "Fungus (Alternaria solani). Attacks older or stressed plants in warm weather with dew or rain.",
+      "symptoms": "Dark brown spots with concentric rings, like a target, first on the lower, older leaves. Leaves turn yellow and die.",
+      "organic": [
+        "Remove badly infected lower leaves.",
+        "Spray a copper product or a Trichoderma-based bio-fungicide.",
+        "Give regular water and balanced manure; well-fed plants resist the disease."
+      ],
+      "chemical": [
+        "Mancozeb or chlorothalonil when spots first appear, repeated every 7 to 10 days."
+      ],
+      "prevention": [
+        "Use certified seed tubers.",
+        "Rotate crops and destroy potato and tomato residue after harvest.",
+        "Avoid water stress."
+      ]
+    },
+    "Potato___Late_blight": {
+      "type": "water mould",
+      "cause": "Water mould (Phytophthora infestans). Spreads very fast in cool, wet, cloudy weather and can destroy a field in days.",
+      "symptoms": "Pale green, water-soaked patches that quickly turn dark brown or black, often with white growth on the underside in humid weather. Tubers rot.",
+      "organic": [
+        "Act immediately: remove and destroy infected plants; do not leave them in the field.",
+        "Spray Bordeaux mixture or another copper product.",
+        "Earth up the rows well so spores cannot reach the tubers."
+      ],
+      "chemical": [
+        "Mancozeb or chlorothalonil as a protective spray every 5 to 7 days in wet weather.",
+        "Metalaxyl plus mancozeb, or cymoxanil plus mancozeb, once the disease has appeared."
+      ],
+      "prevention": [
+        "Plant certified disease-free seed tubers and resistant varieties.",
+        "Avoid irrigation in the evening.",
+        "Destroy volunteer potato plants and cut the haulms two weeks before harvest if foliage is infected."
+      ]
+    },
+    "Squash___Powdery_mildew": {
+      "type": "fungus",
+      "cause": "Fungus (Podosphaera xanthii and related species). Favoured by warm, dry days with humid nights.",
+      "symptoms": "White powdery patches on both sides of the leaves and on stems. Leaves turn yellow, dry up and die early.",
+      "organic": [
+        "Spray wettable sulphur, potassium bicarbonate or neem oil at the first sign.",
+        "A milk spray (1 part milk to 9 parts water) is a common home remedy.",
+        "Remove the worst affected leaves."
+      ],
+      "chemical": [
+        "Hexaconazole or myclobutanil if the disease keeps spreading."
+      ],
+      "prevention": [
+        "Space plants well for good air movement.",
+        "Grow resistant varieties.",
+        "Avoid excess nitrogen fertiliser."
+      ]
+    },
+    "Strawberry___Leaf_scorch": {
+      "type": "fungus",
+      "cause": "Fungus (Diplocarpon earlianum). Spreads by rain splash and survives on old infected leaves.",
+      "symptoms": "Many small purple spots on the upper leaf surface that merge. Leaf edges dry and look scorched.",
+      "organic": [
+        "Remove and destroy infected leaves.",
+        "Renovate beds after harvest by removing old leaves.",
+        "Spray a copper product if the disease is severe."
+      ],
+      "chemical": [
+        "Captan or myclobutanil if the disease is severe."
+      ],
+      "prevention": [
+        "Use drip irrigation and space plants so leaves dry quickly.",
+        "Plant resistant varieties in new beds.",
+        "Avoid excess nitrogen fertiliser."
+      ]
+    },
+    "Tomato___Bacterial_spot": {
+      "type": "bacteria",
+      "cause": "Bacterium (Xanthomonas species). Carried on seed and seedlings; spreads by rain splash and handling wet plants.",
+      "symptoms": "Small, dark, greasy-looking spots on leaves, sometimes with a yellow halo. Fruit gets small raised brown scabs.",
+      "organic": [
+        "Remove badly infected plants.",
+        "Spray a copper product at the first sign.",
+        "Stake plants and do not touch them when wet."
+      ],
+      "chemical": [
+        "Copper oxychloride or copper hydroxide, usually mixed with mancozeb, every 7 to 10 days in wet weather."
+      ],
+      "prevention": [
+        "Use certified disease-free seed and seedlings.",
+        "Rotate away from tomato and pepper for 2 to 3 years.",
+        "Use drip irrigation."
+      ]
+    },
+    "Tomato___Early_blight": {
+      "type": "fungus",
+      "cause": "Fungus (Alternaria solani). Survives in soil and crop residue; favoured by warm, humid weather.",
+      "symptoms": "Brown spots with concentric rings on older leaves, surrounded by yellow. Lower leaves die first; stems and fruit can also be infected.",
+      "organic": [
+        "Remove infected lower leaves.",
+        "Mulch the soil so spores do not splash onto the leaves.",
+        "Spray a copper product or a Trichoderma-based bio-fungicide."
+      ],
+      "chemical": [
+        "Mancozeb or chlorothalonil when spots first appear, repeated every 7 to 10 days."
+      ],
+      "prevention": [
+        "Stake and prune plants for air movement.",
+        "Rotate crops and remove plant residue after harvest.",
+        "Water at the base of the plant."
+      ]
+    },
+    "Tomato___Late_blight": {
+      "type": "water mould",
+      "cause": "Water mould (Phytophthora infestans). Spreads very fast in cool, wet weather.",
+      "symptoms": "Large, irregular, greasy grey-green patches on leaves that turn brown, with white growth underneath in humid weather. Fruit gets firm brown patches.",
+      "organic": [
+        "Act immediately: pull out and destroy infected plants; do not compost them.",
+        "Spray Bordeaux mixture or another copper product.",
+        "Remove lower leaves and widen spacing so plants dry quickly."
+      ],
+      "chemical": [
+        "Mancozeb or chlorothalonil as a protective spray every 5 to 7 days in wet weather.",
+        "Metalaxyl plus mancozeb, or cymoxanil plus mancozeb, once the disease has appeared."
+      ],
+      "prevention": [
+        "Use healthy seedlings and resistant varieties.",
+        "Do not grow tomatoes next to potatoes.",
+        "Water at the base of the plant in the morning."
+      ]
+    },
+    "Tomato___Leaf_Mold": {
+      "type": "fungus",
+      "cause": "Fungus (Passalora fulva). Mainly a problem in greenhouses and polyhouses with high humidity.",
+      "symptoms": "Pale yellow spots on the upper leaf surface with olive-green to brown velvety mould underneath. Leaves wither and drop.",
+      "organic": [
+        "Lower the humidity: ventilate and widen the spacing.",
+        "Remove infected leaves.",
+        "Spray a copper product."
+      ],
+      "chemical": [
+        "Chlorothalonil or mancozeb at the first sign."
+      ],
+      "prevention": [
+        "Keep humidity below 85% in protected cultivation.",
+        "Avoid wetting the leaves.",
+        "Grow resistant varieties and clean the greenhouse between crops."
+      ]
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "type": "fungus",
+      "cause": "Fungus (Septoria lycopersici). Survives on crop residue and weeds; spreads by rain splash.",
+      "symptoms": "Many small circular spots with dark edges and grey centres with tiny black dots, starting on the lower leaves.",
+      "organic": [
+        "Remove infected lower leaves as soon as spots are seen.",
+        "Mulch around plants and avoid overhead watering.",
+        "Spray a copper product."
+      ],
+      "chemical": [
+        "Chlorothalonil or mancozeb every 7 to 10 days."
+      ],
+      "prevention": [
+        "Rotate crops for 2 to 3 years.",
+        "Remove solanaceous weeds and crop residue.",
+        "Stake plants to keep leaves off the soil."
+      ]
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "type": "pest",
+      "cause": "A tiny pest (Tetranychus urticae), not a disease. It multiplies quickly in hot, dry, dusty conditions.",
+      "symptoms": "Fine yellow or white speckles on leaves, which turn bronze and dry. Fine webbing on the underside of leaves.",
+      "organic": [
+        "Wash the underside of leaves with a strong jet of water.",
+        "Spray neem oil or insecticidal soap.",
+        "Keep plants well watered; water-stressed plants suffer more."
+      ],
+      "chemical": [
+        "A miticide such as abamectin, spiromesifen or propargite if the attack is heavy.",
+        "Avoid broad-spectrum insecticides, which kill the natural enemies of mites."
+      ],
+      "prevention": [
+        "Reduce dust and remove weeds around the field.",
+        "Check the underside of leaves regularly in hot weather."
+      ]
+    },
+    "Tomato___Target_Spot": {
+      "type": "fungus",
+      "cause": "Fungus (Corynespora cassiicola). Favoured by warm temperatures and long periods of leaf wetness.",
+      "symptoms": "Small brown spots that enlarge with pale centres and concentric rings. Fruit gets sunken brown spots.",
+      "organic": [
+        "Remove infected leaves from the lower part of the plant.",
+        "Improve air movement by staking, pruning and wider spacing.",
+        "Spray a copper product."
+      ],
+      "chemical": [
+        "Chlorothalonil, mancozeb or azoxystrobin at the first sign."
+      ],
+      "prevention": [
+        "Avoid overhead irrigation.",
+        "Remove crop residue and rotate crops."
+      ]
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "type": "virus",
+      "cause": "Virus spread by whiteflies (Bemisia tabaci).",
+      "symptoms": "Leaves curl upward, turn yellow at the edges and stay small. Plants are stunted and bushy, and flowers drop, so few fruit set.",
+      "organic": [
+        "There is no cure. Pull out infected plants, bag them and destroy them.",
+        "Use yellow sticky traps and neem oil against whiteflies.",
+        "Use reflective mulch to keep whiteflies away from young plants."
+      ],
+      "chemical": [
+        "Control whiteflies with imidacloprid or thiamethoxam; rotate products so the insects do not become resistant."
+      ],
+      "prevention": [
+        "Use resistant varieties and virus-free seedlings raised under insect-proof net.",
+        "Remove weeds that host whiteflies.",
+        "Avoid planting next to an older infected crop."
+      ]
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "type": "virus",
+      "cause": "Virus spread by contact: hands, tools, infected seed and plant debris. It is very stable and survives for years.",
+      "symptoms": "Light and dark green mosaic pattern on leaves, which may be curled or narrow like a fern. Plants are stunted and fruit ripens unevenly.",
+      "organic": [
+        "There is no cure. Remove and destroy infected plants.",
+        "Wash hands with soap and disinfect tools before touching healthy plants.",
+        "Dipping hands and tools in skimmed milk reduces spread while handling plants."
+      ],
+      "chemical": [
+        "No pesticide works against this virus.",
+        "Disinfect tools with a bleach or trisodium phosphate solution."
+      ],
+      "prevention": [
+        "Use certified virus-free seed and resistant varieties.",
+        "Do not handle tobacco products while working with the plants.",
+        "Rotate crops and remove old plant debris."
+      ]
+    }
+  }
+}

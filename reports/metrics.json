@@ -1,5 +1,8 @@
 {
   "test_accuracy": 0.9187437686939183,
+  "macro_precision": 0.897,
+  "macro_recall": 0.9,
+  "macro_f1": 0.898,
   "best_val_accuracy": 0.9072781801223755,
   "images": {
     "total": 13371,

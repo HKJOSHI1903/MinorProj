@@ -1,4 +1,4 @@
-"""Turn PlantVillage folder names into readable crop and disease names."""
+"""Turn PlantVillage folder names into readable names and look up treatment advice."""
 
 from __future__ import annotations
 
@@ -8,7 +8,8 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
-INFO_PATH = Path(__file__).with_name("disease_info.json")
+ROOT = Path(__file__).resolve().parents[2]
+ADVICE_PATH = ROOT / "data" / "treatment_advice.json"
 
 
 @dataclass(frozen=True)
@@ -42,15 +43,29 @@ def parse_label(class_name: str) -> Label:
 
 
 def _key(class_name: str) -> str:
+    """Ignore case and punctuation, so 'Common_rust_' and 'Common_rust' match."""
     return re.sub(r"[^a-z0-9]", "", class_name.lower())
 
 
 @lru_cache(maxsize=1)
-def _load_info() -> dict[str, dict]:
-    raw = json.loads(INFO_PATH.read_text(encoding="utf-8"))
-    return {_key(name): entry for name, entry in raw.items()}
+def _load() -> dict:
+    raw = json.loads(ADVICE_PATH.read_text(encoding="utf-8"))
+    raw["classes"] = {_key(name): entry for name, entry in raw["classes"].items()}
+    return raw
 
 
-def disease_info(class_name: str) -> dict | None:
-    """Cause, symptoms, treatment and prevention for a disease class, if we have them."""
-    return _load_info().get(_key(class_name))
+def treatment_advice(class_name: str) -> dict | None:
+    """Advice for one class.
+
+    Disease classes return cause, symptoms, organic, chemical and prevention.
+    Healthy classes return the general care tips (organic and prevention only).
+    Returns None when nothing is stored for the class.
+    """
+    data = _load()
+    if parse_label(class_name).healthy:
+        return data["healthy"]
+    return data["classes"].get(_key(class_name))
+
+
+def advice_disclaimer() -> str:
+    return _load()["_meta"]["disclaimer"]
