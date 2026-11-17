@@ -1,11 +1,44 @@
 <script setup>
-import { ArrowRight, ArrowUpRight, Leaf, MessagesSquare, ScanLine, Sprout, Trash2 } from 'lucide-vue-next'
-import { computed } from 'vue'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CloudRain,
+  CloudSun,
+  Droplets,
+  Leaf,
+  LocateFixed,
+  MessagesSquare,
+  PhoneCall,
+  RefreshCw,
+  ScanLine,
+  Sprout,
+  Thermometer,
+  Trash2,
+  Wind,
+} from 'lucide-vue-next'
+import { computed, ref } from 'vue'
 import { meta } from '../../lib/api'
 import { clearScans, scans } from '../../lib/history'
 import { useI18n } from '../../lib/i18n'
+import { getWeather } from '../../lib/weather'
 
 const { t, cropName } = useI18n()
+
+// Spraying weather. The location is requested only when the farmer presses the button.
+const weather = ref(null)
+const weatherState = ref('idle') // idle | loading | done | error
+const weatherError = ref('')
+
+async function checkWeather() {
+  weatherState.value = 'loading'
+  try {
+    weather.value = await getWeather()
+    weatherState.value = 'done'
+  } catch (error) {
+    weatherError.value = error.message
+    weatherState.value = 'error'
+  }
+}
 
 const greeting = computed(() => {
   const hour = new Date().getHours()
@@ -135,8 +168,8 @@ function tone(scan) {
         <div class="mt-4 space-y-4">
           <RouterLink
             v-for="module in [
-              { name: 'crop', icon: Sprout, tile: 'amber', title: 'app.crop' },
-              { name: 'assistant', icon: MessagesSquare, tile: 'sky', title: 'app.assistant' },
+              { name: 'crop', icon: Sprout, tile: 'amber', title: 'app.crop', text: 'features.crop.text' },
+              { name: 'assistant', icon: MessagesSquare, tile: 'sky', title: 'app.assistant', text: 'features.assistant.text' },
             ]"
             :key="module.name"
             :to="{ name: module.name }"
@@ -145,10 +178,70 @@ function tone(scan) {
             <span class="icon-tile" :class="module.tile"><component :is="module.icon" class="size-6" /></span>
             <div class="min-w-0 flex-1">
               <div class="text-lg font-semibold text-fog">{{ t(module.title) }}</div>
-              <span class="badge badge-soon mt-1">{{ t('features.soon') }}</span>
+              <div class="truncate text-sm text-mist">{{ t(module.text) }}</div>
             </div>
             <ArrowUpRight class="size-5 text-mist transition-colors group-hover:text-lime" />
           </RouterLink>
+
+          <!-- spraying weather -->
+          <div class="glass rounded-3xl p-5" data-testid="weather-card">
+            <div class="flex items-center gap-4">
+              <span class="icon-tile muted"><CloudSun class="size-6" /></span>
+              <div class="min-w-0 flex-1">
+                <div class="text-lg font-semibold text-fog">{{ t('weather.title') }}</div>
+                <div v-if="weatherState !== 'done'" class="text-sm text-mist">{{ t('weather.text') }}</div>
+              </div>
+              <button
+                v-if="weatherState === 'done'"
+                type="button"
+                class="grid size-10 place-items-center rounded-full border border-white/10 text-mist hover:text-fog"
+                :aria-label="t('weather.again')"
+                @click="checkWeather"
+              >
+                <RefreshCw class="size-4" />
+              </button>
+            </div>
+
+            <template v-if="weatherState === 'done'">
+              <div class="mt-4 rounded-2xl border p-4" :class="weather.sprayOk ? 'border-lime/30 bg-lime/8' : 'border-amber/35 bg-amber/10'">
+                <div class="flex items-center gap-2 text-lg font-bold" :class="weather.sprayOk ? 'text-lime' : 'text-amber'">
+                  <component :is="weather.sprayOk ? Sprout : CloudRain" class="size-5" />
+                  {{ weather.sprayOk ? t('weather.good') : t('weather.wait') }}
+                </div>
+                <p class="mt-1 text-fog/90">{{ t(`weather.${weather.reason}`) }}</p>
+              </div>
+              <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div v-for="item in [
+                  { icon: Thermometer, label: 'weather.temperature', value: `${Math.round(weather.temperature)}°C` },
+                  { icon: Droplets, label: 'weather.humidity', value: `${Math.round(weather.humidity)}%` },
+                  { icon: Wind, label: 'weather.wind_label', value: `${Math.round(weather.wind)} km/h` },
+                  { icon: CloudRain, label: 'weather.rain_label', value: `${Math.round(weather.rainChance)}%` },
+                ]" :key="item.label" class="flex items-center gap-2.5">
+                  <component :is="item.icon" class="size-4 shrink-0 text-lime" />
+                  <dt class="text-mist">{{ t(item.label) }}</dt>
+                  <dd class="ml-auto font-semibold tabular-nums text-fog">{{ item.value }}</dd>
+                </div>
+              </dl>
+              <p class="mt-3 text-xs leading-relaxed text-dim">{{ t('weather.note') }}</p>
+            </template>
+            <template v-else>
+              <p v-if="weatherState === 'error'" class="mt-3 text-sm text-amber" role="alert">{{ t(`weather.${weatherError}`) }}</p>
+              <button type="button" class="btn btn-ghost mt-4 w-full" :disabled="weatherState === 'loading'" @click="checkWeather">
+                <LocateFixed class="size-5" :class="{ 'animate-pulse': weatherState === 'loading' }" />
+                {{ weatherState === 'loading' ? t('weather.checking') : t('weather.button') }}
+              </button>
+            </template>
+          </div>
+
+          <!-- helpline -->
+          <a href="tel:18001801551" class="glass group flex items-center gap-4 rounded-3xl p-5 transition-transform duration-300 ease-[var(--ease-out-expo)] hover:-translate-y-1">
+            <span class="icon-tile"><PhoneCall class="size-6" /></span>
+            <div class="min-w-0 flex-1">
+              <div class="text-lg font-semibold text-fog">{{ t('help.title') }}</div>
+              <div class="text-sm text-mist">{{ t('help.text') }}</div>
+              <div class="mt-1 font-display text-lg font-bold text-lime">1800-180-1551</div>
+            </div>
+          </a>
         </div>
       </section>
     </div>

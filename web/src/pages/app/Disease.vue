@@ -8,7 +8,10 @@ import {
   FlaskConical,
   ImagePlus,
   Leaf,
+  MessagesSquare,
   RotateCcw,
+  Volume2,
+  VolumeX,
   ScanLine,
   ShieldCheck,
   Sprout,
@@ -17,12 +20,16 @@ import {
   X,
 } from 'lucide-vue-next'
 import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import ConfidenceRing from '../../components/ConfidenceRing.vue'
 import { predictDisease } from '../../lib/api'
+import { diseaseContext, setLastResult } from '../../lib/context'
 import { addScan, makeThumbnail } from '../../lib/history'
 import { useI18n } from '../../lib/i18n'
+import { canSpeak, speak, speaking, stopSpeaking } from '../../lib/speech'
 
-const { t, cropName } = useI18n()
+const { t, cropName, lang } = useI18n()
+const router = useRouter()
 
 const MAX_BYTES = 10 * 1024 * 1024
 
@@ -55,6 +62,7 @@ async function analyse(file) {
     result.value = response
     activeTab.value = 'organic'
     status.value = 'done'
+    setLastResult(diseaseContext(response)) // lets the assistant answer "what should I do about this?"
     addScan(response, await makeThumbnail(file))
   } catch (error) {
     fail(error.code || 'server_error')
@@ -66,7 +74,21 @@ function fail(code) {
   status.value = 'error'
 }
 
+// Reads the result aloud: the summary in the chosen language, then the steps of the open tab
+// (the advice text is stored in English, so it is read with an English voice).
+function listen() {
+  if (speaking.value) return stopSpeaking()
+  const condition = prediction.value.healthy ? t('scan.healthyLeaf') : prediction.value.condition
+  const percent = Math.round(prediction.value.confidence * 100)
+  speak([
+    { text: `${t('scan.crop')}: ${cropName(prediction.value.crop)}. ${t('scan.result')}: ${condition}. ${t('scan.confidence')} ${percent}%.`, lang: lang.value },
+    result.value.low_confidence ? { text: t('scan.lowText', { threshold: threshold.value }), lang: lang.value } : {},
+    { text: activeItems.value.join(' '), lang: 'en' },
+  ])
+}
+
 function reset() {
+  stopSpeaking()
   if (previewUrl.value) URL.revokeObjectURL(previewUrl.value)
   previewUrl.value = ''
   result.value = null
@@ -162,6 +184,7 @@ function capture() {
 }
 
 onBeforeUnmount(() => {
+  stopSpeaking()
   closeCamera()
   if (previewUrl.value) URL.revokeObjectURL(previewUrl.value)
 })
@@ -275,6 +298,15 @@ onBeforeUnmount(() => {
                 <div class="mt-4 text-sm font-semibold uppercase tracking-wider text-dim">{{ t('scan.result') }}</div>
                 <div class="font-display text-3xl font-extrabold leading-tight sm:text-4xl" :class="toneClasses.text" data-testid="result-condition">
                   {{ prediction.healthy ? t('scan.healthyLeaf') : prediction.condition }}
+                </div>
+                <div class="mt-5 flex flex-wrap justify-center gap-2 sm:justify-start">
+                  <button v-if="canSpeak" type="button" class="btn btn-ghost !min-h-11 !px-4 !text-sm" @click="listen">
+                    <VolumeX v-if="speaking" class="size-4" /><Volume2 v-else class="size-4" />
+                    {{ speaking ? t('voice.stop') : t('voice.listen') }}
+                  </button>
+                  <button type="button" class="btn btn-ghost !min-h-11 !px-4 !text-sm" data-testid="ask-assistant" @click="router.push({ name: 'assistant' })">
+                    <MessagesSquare class="size-4" /> {{ t('voice.ask') }}
+                  </button>
                 </div>
               </div>
             </div>

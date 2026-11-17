@@ -9,8 +9,8 @@ const routes = [
     children: [
       { path: '', name: 'overview', component: () => import('./pages/app/Overview.vue') },
       { path: 'disease', name: 'disease', component: () => import('./pages/app/Disease.vue') },
-      { path: 'crop', name: 'crop', component: () => import('./pages/app/ComingSoon.vue'), props: { module: 'crop' } },
-      { path: 'assistant', name: 'assistant', component: () => import('./pages/app/ComingSoon.vue'), props: { module: 'assistant' } },
+      { path: 'crop', name: 'crop', component: () => import('./pages/app/Crop.vue') },
+      { path: 'assistant', name: 'assistant', component: () => import('./pages/app/Assistant.vue') },
     ],
   },
   { path: '/:pathMatch(.*)*', redirect: { name: 'home' } },

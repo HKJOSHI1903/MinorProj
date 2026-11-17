@@ -6,6 +6,10 @@ Endpoints
     GET  /api/health            is the server up, is the model loaded
     GET  /api/meta              classes, crops, real training metrics, threshold
     POST /api/disease/predict   form field "image" -> disease, confidence, advice
+    GET  /api/crop/meta         crops, input ranges and presets, real model metrics
+    POST /api/crop/recommend    JSON with N, P, K, temperature, humidity, ph, rainfall
+    GET  /api/chat/status       whether an API key is set, how many documents are indexed
+    POST /api/chat              JSON with message, language, history, context
 
 When the Vue app has been built (web/dist exists) this server also serves it,
 so the whole product runs from this one command.
@@ -20,12 +24,15 @@ from flask import Flask, jsonify, request, send_from_directory
 from PIL import Image, UnidentifiedImageError
 from werkzeug.exceptions import HTTPException
 
+from kisan.chatbot import chat, retriever
+from kisan.crop import predict as crop
 from kisan.disease.labels import advice_disclaimer, parse_label, treatment_advice
 from kisan.disease.predict import LOW_CONFIDENCE, ModelNotTrained, load_model, predict
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_DIST = ROOT / "web" / "dist"
 METRICS_PATH = ROOT / "reports" / "metrics.json"
+CROP_METRICS_PATH = ROOT / "reports" / "crop" / "metrics.json"
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
 MIN_SIDE = 32                        # photos smaller than this cannot be judged
@@ -71,6 +78,20 @@ def create_app() -> Flask:
     def model_missing(_error):
         return jsonify(error={"code": "model_missing",
                               "message": "The model has not been trained yet."}), 503
+
+    @app.errorhandler(crop.CropModelNotTrained)
+    def crop_model_missing(_error):
+        return jsonify(error={"code": "model_missing",
+                              "message": "The crop model has not been trained yet."}), 503
+
+    @app.errorhandler(crop.InvalidInput)
+    def invalid_input(error: crop.InvalidInput):
+        return jsonify(error={"code": "invalid_input", "field": error.field, "message": str(error)}), 400
+
+    @app.errorhandler(retriever.IndexNotBuilt)
+    def index_missing(_error):
+        return jsonify(error={"code": "index_missing",
+                              "message": "The knowledge base has not been indexed yet."}), 503
 
     @app.errorhandler(HTTPException)
     def http_error(error: HTTPException):
@@ -122,6 +143,43 @@ def create_app() -> Flask:
             advice=treatment_advice(best.label.class_name),
             disclaimer=advice_disclaimer(),
         )
+
+    # ---- Module 2: crop recommendation ----
+    @app.get("/api/crop/meta")
+    def crop_meta():
+        bundle, profiles = crop.load()
+        metrics = None
+        if CROP_METRICS_PATH.exists():
+            metrics = json.loads(CROP_METRICS_PATH.read_text(encoding="utf-8"))
+        return jsonify(crops=bundle["classes"], features=profiles["features"], limits=crop.LIMITS,
+                       model=bundle["name"], metrics=metrics, low_confidence_threshold=crop.LOW_CONFIDENCE)
+
+    @app.post("/api/crop/recommend")
+    def crop_recommend():
+        values = request.get_json(silent=True)
+        if not isinstance(values, dict):
+            raise ApiError(400, "invalid_input", "Send the seven values as JSON.")
+        return jsonify(crop.recommend(values))
+
+    # ---- Module 3: the farming assistant ----
+    @app.get("/api/chat/status")
+    def chat_status():
+        return jsonify(ai_available=chat.ai_available(), documents=retriever.document_count(),
+                       helpline=chat.HELPLINE)
+
+    @app.post("/api/chat")
+    def chat_message():
+        body = request.get_json(silent=True)
+        if not isinstance(body, dict):
+            raise ApiError(400, "invalid_input", "Send the message as JSON.")
+        message = body.get("message")
+        if not isinstance(message, str) or not message.strip():
+            raise ApiError(400, "empty_message", "Type a question first.")
+        history = body.get("history") if isinstance(body.get("history"), list) else []
+        context = body.get("context") if isinstance(body.get("context"), dict) else None
+        language = "hi" if body.get("language") == "hi" else "en"
+        return jsonify(chat.answer(message, language=language, context=context,
+                                   history=[turn for turn in history if isinstance(turn, dict)]))
 
     # ---- The built Vue app (only present after `npm run build` in web/) ----
     @app.get("/")

@@ -14,8 +14,8 @@ const route = useRoute()
 const items = [
   { name: 'overview', key: 'app.overview', icon: LayoutGrid },
   { name: 'disease', key: 'app.disease', icon: ScanLine },
-  { name: 'crop', key: 'app.crop', icon: Sprout, soon: true },
-  { name: 'assistant', key: 'app.assistant', icon: MessagesSquare, soon: true },
+  { name: 'crop', key: 'app.crop', icon: Sprout },
+  { name: 'assistant', key: 'app.assistant', icon: MessagesSquare },
 ]
 
 onMounted(loadMeta)
@@ -49,7 +49,6 @@ const status = computed(() => {
           >
             <component :is="item.icon" class="size-5 shrink-0" />
             <span class="flex-1 whitespace-nowrap">{{ t(item.key) }}</span>
-            <span v-if="item.soon" class="badge badge-soon !px-2 !py-0.5 !text-[0.68rem]">{{ t('app.soon') }}</span>
           </RouterLink>
         </nav>
 

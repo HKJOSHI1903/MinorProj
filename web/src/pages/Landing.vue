@@ -247,20 +247,26 @@ const navLinks = [
 
           <article v-reveal v-tilt class="tilt glass rounded-[2rem] p-7 sm:p-8 lg:col-span-3">
             <div class="lift flex items-center gap-3">
-              <span class="icon-tile muted"><Sprout class="size-6" /></span>
-              <span class="badge badge-soon">{{ t('features.soon') }}</span>
+              <span class="icon-tile amber"><Sprout class="size-6" /></span>
+              <span class="badge badge-live"><span class="dot" />{{ t('features.live') }}</span>
             </div>
             <h3 class="font-display lift-sm mt-6 text-2xl font-bold text-fog">{{ t('features.crop.title') }}</h3>
             <p class="lift-sm mt-3 leading-relaxed text-mist">{{ t('features.crop.text') }}</p>
+            <RouterLink :to="{ name: 'crop' }" class="lift-sm mt-5 inline-flex items-center gap-2 font-semibold text-lime transition-all hover:gap-3">
+              {{ t('app.crop') }} <ArrowUpRight class="size-5" />
+            </RouterLink>
           </article>
 
           <article v-reveal="80" v-tilt class="tilt glass rounded-[2rem] p-7 sm:p-8 lg:col-span-3">
             <div class="lift flex items-center gap-3">
-              <span class="icon-tile muted"><MessagesSquare class="size-6" /></span>
-              <span class="badge badge-soon">{{ t('features.soon') }}</span>
+              <span class="icon-tile sky"><MessagesSquare class="size-6" /></span>
+              <span class="badge badge-live"><span class="dot" />{{ t('features.live') }}</span>
             </div>
             <h3 class="font-display lift-sm mt-6 text-2xl font-bold text-fog">{{ t('features.assistant.title') }}</h3>
             <p class="lift-sm mt-3 leading-relaxed text-mist">{{ t('features.assistant.text') }}</p>
+            <RouterLink :to="{ name: 'assistant' }" class="lift-sm mt-5 inline-flex items-center gap-2 font-semibold text-lime transition-all hover:gap-3">
+              {{ t('app.assistant') }} <ArrowUpRight class="size-5" />
+            </RouterLink>
           </article>
         </div>
       </section>

@@ -4,11 +4,20 @@ A web product for Indian farmers. Photograph one leaf and Kisan Sahayak names
 the disease, shows how confident it is, and gives organic and chemical
 treatment options, in Hindi or English.
 
-| Module | Status |
+| Module | What it does |
 | --- | --- |
-| 1. Crop disease detection (CNN on leaf photos) | Built |
-| 2. Crop recommendation (soil and weather to best crop) | In development |
-| 3. Farmer chatbot (Hindi/English, answers from documents) | In development |
+| 1. Disease scan | A CNN names the disease on a leaf photo and gives organic and chemical treatment |
+| 2. Crop advisor | A Random Forest recommends a crop from soil N-P-K, pH, temperature, humidity and rainfall, and shows why |
+| 3. Farming assistant | Answers questions in Hindi or English from a set of agriculture documents (RAG with Claude) |
+
+Built for farmers who are not comfortable with reading and typing:
+
+- **Voice.** Results and answers can be read aloud, and questions can be spoken.
+- **Spraying weather.** One tap shows whether today is dry and calm enough to spray.
+- **No soil test needed.** Low / Medium / High presets, and temperature and humidity filled from the local weather.
+- **Honest about doubt.** Below 70% confidence every module says so and points to the Krishi Vigyan Kendra.
+- **Helpline.** The Kisan Call Centre number (1800-180-1551) is one tap away.
+- **Explains its results.** The assistant knows the latest scan or crop result, so "what should I do about this?" needs no retyping.
 
 ## How it is built
 
@@ -38,10 +47,22 @@ npm install
 npm run build        # builds the website into web/dist
 cd ..
 
-python -m api.server # serves the website and the API
+python -m kisan.chatbot.ingest   # once: downloads the embedding model (~220 MB), indexes the documents
+python -m api.server             # serves the website and the API
 ```
 
-Open http://localhost:8000. A trained model is already in `models/`.
+Open http://localhost:8000. The trained models are already in `models/`.
+
+### The assistant's API key
+
+The assistant writes full answers with Claude, which needs an API key:
+
+1. Copy `.env.example` to `.env`.
+2. Put your key after `ANTHROPIC_API_KEY=` (create one at https://console.anthropic.com/).
+3. Restart the server.
+
+Without a key the assistant runs in basic mode: it finds the matching passages
+and shows them as they are. The key is read from `.env`, which is never committed.
 
 ### While developing the frontend
 
@@ -59,9 +80,49 @@ cd web && npm run dev         # terminal 2: website on http://localhost:5173
 | `GET /api/health` | Whether the server is up and the model is loaded |
 | `GET /api/meta` | Classes, crops, the real training metrics, the 70% threshold |
 | `POST /api/disease/predict` | Form field `image`: prediction, confidence, top 3, advice |
+| `GET /api/crop/meta` | Crops, input ranges and presets, the real model comparison |
+| `POST /api/crop/recommend` | JSON with the seven values: top crops, confidence, reasons |
+| `GET /api/chat/status` | Whether an API key is set and how many documents are indexed |
+| `POST /api/chat` | JSON with `message`, `language`, `history`, `context`: answer and sources |
 
 Errors come back as `{"error": {"code": "...", "message": "..."}}`. Codes:
-`no_file`, `invalid_image`, `image_too_small`, `file_too_large`, `model_missing`.
+`no_file`, `invalid_image`, `image_too_small`, `file_too_large`, `invalid_input`
+(with the `field`), `empty_message`, `model_missing`, `index_missing`.
+
+## How the crop advisor works
+
+`python -m kisan.crop.train` compares four models with 5-fold cross-validation
+on the Crop Recommendation dataset (2,200 rows, 22 crops), keeps the best one
+and tests it once on a held-out 20%. The comparison, confusion matrix, feature
+importance and EDA plots are written to `reports/crop/`.
+
+To explain a recommendation, the app compares each value the farmer entered
+with the range that crop grows in (5th to 95th percentile in the data). A
+recommendation is marked uncertain when confidence is below 70% or a value is
+outside anything the model was trained on.
+
+Download the data with `python scripts/download_crop_data.py`.
+
+## How the assistant works (RAG)
+
+```
+question ──> embed ──> FAISS: nearest passages ──> Claude: answer only from these ──> answer + sources
+                        (knowledge_base/*.md)        (plus the farmer's latest result)
+```
+
+1. **Chunk.** Each document in `knowledge_base/` is split into one passage per section.
+2. **Embed.** A multilingual sentence-embedding model turns each passage into a
+   vector, so a Hindi question lands near the English passage that answers it.
+3. **Retrieve.** FAISS returns the passages closest to the question; weak
+   matches are dropped.
+4. **Generate.** Claude receives the passages, the farmer's latest scan or crop
+   result and the question, with instructions to answer only from the passages
+   and to say so when they do not contain the answer.
+
+Replace the files in `knowledge_base/` with your own documents and run
+`python -m kisan.chatbot.ingest` again. The starter documents are general
+guidance written for this project; check them against the official sources
+named at the top of each file.
 
 ## How the model works
 
@@ -108,7 +169,11 @@ Training writes the model to `models/` and these files to `reports/`:
 | Path | What it is |
 | --- | --- |
 | `web/src/pages/Landing.vue` | Homepage |
-| `web/src/pages/app/` | Dashboard: layout, overview, disease scan, upcoming modules |
+| `web/src/pages/app/` | Dashboard: layout, overview, disease scan, crop advisor, assistant |
+| `web/src/lib/speech.js`, `weather.js` | Read-aloud and voice typing; local weather from Open-Meteo |
+| `kisan/crop/` | Crop model: training with model comparison, prediction with reasons |
+| `kisan/chatbot/` | Assistant: `ingest.py` (index), `retriever.py` (search), `chat.py` (Claude) |
+| `knowledge_base/` | The documents the assistant answers from |
 | `web/src/three/LeafScene.js` | The 3D leaf-scan scene (Three.js, custom shader) |
 | `web/src/lib/i18n.js` | Hindi and English text |
 | `web/src/lib/api.js` | Calls to the Python server |
@@ -130,6 +195,14 @@ Training writes the model to `models/` and these files to `reports/`:
   than the test accuracy.
 - The model only knows its 38 classes. A photo of anything else still gets one
   of those answers; the 70% threshold catches many of these cases, not all.
+- The Crop Recommendation dataset is small and very clean, which is why every
+  model scores near 99%. Real fields are messier, and the model knows nothing
+  about season, water supply, market prices or seed availability.
+- The Low / Medium / High presets are percentiles of the training data, not the
+  official Soil Health Card ratings.
+- The assistant is only as good as the documents in `knowledge_base/`.
+- Voice typing depends on the browser (Chrome, Edge and Android browsers
+  support it); the weather features need internet and location permission.
 - The treatment advice is general and in English. Doses, approved products and
   waiting periods differ by region, so farmers should confirm with the local
   agriculture officer or Krishi Vigyan Kendra.
