@@ -1,5 +1,6 @@
 {
   "image_size": 224,
+  "temperature": 1.0,
   "class_names": [
     "Apple___Apple_scab",
     "Apple___Black_rot",

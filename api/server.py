@@ -28,6 +28,7 @@ from kisan.chatbot import chat, retriever
 from kisan.crop import predict as crop
 from kisan.disease.labels import advice_disclaimer, parse_label, treatment_advice
 from kisan.disease.predict import LOW_CONFIDENCE, ModelNotTrained, load_model, predict
+from kisan.disease.quality import assess as assess_quality
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_DIST = ROOT / "web" / "dist"
@@ -108,7 +109,7 @@ def create_app() -> Flask:
 
     @app.get("/api/meta")
     def meta():
-        _, class_names, image_size = load_model()
+        _, class_names, image_size, _temperature = load_model()
         labels = [parse_label(name) for name in class_names]
         metrics = None
         if METRICS_PATH.exists():
@@ -131,7 +132,9 @@ def create_app() -> Flask:
             raise ApiError(400, "no_file", "No photo was sent.")
         image = read_photo(file)
 
-        results = predict(image, top_k=3)
+        # Too dark, blurred, grainy, too small...: the app shows how to retake the photo.
+        photo_quality = assess_quality(image)
+        results = predict(image, top_k=3, issues=photo_quality.issues)
         best = results[0]
         return jsonify(
             prediction=label_json(best.label, best.confidence),
@@ -139,6 +142,7 @@ def create_app() -> Flask:
             # and to consult the local KVK or agriculture officer.
             low_confidence=best.confidence < LOW_CONFIDENCE,
             threshold=LOW_CONFIDENCE,
+            quality=photo_quality.to_json(),
             alternatives=[label_json(r.label, r.confidence) for r in results],
             advice=treatment_advice(best.label.class_name),
             disclaimer=advice_disclaimer(),

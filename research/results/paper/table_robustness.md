@@ -1,0 +1,16 @@
+**Robustness to photo degradations (PlantVillage test subset); lower mCE is better**
+
+| Model | Clean acc. % | Corrupted acc. % (seen types) | Corrupted acc. % (unseen types) | Relative robustness % | mCE (baseline = 100) | Brightness range (<=5 pt drop) | Max noise sigma (<=5 pt drop) |
+|---|---|---|---|---|---|---|---|
+| MobileNetV2 (frozen) | 92.33 | 66.13 | 39.30 | 63.70 | 100.0 | 0.57–1.76 | 6 |
+| MobileNetV2 (fine-tuned) | 98.66 | 67.30 | 48.51 | 63.02 | 92.7 | 0.60–1.58 | 11 |
+| MobileNetV2 (fine-tuned) + QAA | 98.44 | 93.53 | 89.42 | 93.87 | 18.9 | 0.10–2.58 | 51 |
+| EfficientNetV2-B0 (fine-tuned) + QAA | 99.20 | 96.72 | 96.71 | 97.50 | 8.5 | 0.10–2.94 | 80 |
+| MobileNetV3-L (fine-tuned) + QAA | 99.52 | 96.38 | 95.80 | 96.69 | 9.8 | - | - |
+| ResNet50V2 (fine-tuned) + QAA | 98.39 | 92.85 | - | 94.37 | 18.7 | - | - |
+| DenseNet121 (fine-tuned) + QAA | 98.71 | 93.99 | - | 95.22 | 15.6 | - | - |
+| EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc | 99.46 | 96.18 | 95.27 | 96.45 | 10.2 | 0.10–2.89 | 73 |
+| MobileNetV2 (frozen) + auto-correct | 92.06 | 69.42 | 48.24 | 69.13 | 88.0 | - | - |
+| MobileNetV2 (fine-tuned) + QAA + auto-correct | 98.39 | 91.90 | 86.30 | 91.85 | 21.7 | - | - |
+| Handcrafted + Random Forest | 91.20 | 37.19 | - | 40.78 | 171.3 | - | - |
+| Handcrafted + SVM | 93.88 | 37.88 | - | 40.35 | 172.2 | - | - |

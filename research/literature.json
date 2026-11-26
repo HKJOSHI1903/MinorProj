@@ -1,0 +1,60 @@
+{
+  "caption": "Published results as reported by their authors (protocols differ, so the numbers are indicative, not a head-to-head comparison)",
+  "verified_on": "2026-11-25",
+  "entries": [
+    {
+      "work": "Mohanty et al. 2016",
+      "model": "GoogLeNet, transfer learning",
+      "dataset": "PlantVillage, colour (54,306 photos, 38 classes)",
+      "protocol": "80/20 random split",
+      "accuracy": "99.35%",
+      "field_test": "31.40% on 121 web photos taken in other conditions (47.93% when the crop is given)",
+      "source": "Front. Plant Sci. 7:1419 (2016); arXiv:1604.03169, abstract and Results"
+    },
+    {
+      "work": "Singh et al. 2020 (PlantDoc)",
+      "model": "VGG16",
+      "dataset": "Trained on PlantVillage",
+      "protocol": "Tested on all of uncropped PlantDoc, 100 x 100 input",
+      "accuracy": "-",
+      "field_test": "15.08% (F1 0.15)",
+      "source": "CODS-COMAD 2020; arXiv:1911.10317, Table 1"
+    },
+    {
+      "work": "Singh et al. 2020 (PlantDoc)",
+      "model": "VGG16 / InceptionV3 / InceptionResNetV2",
+      "dataset": "Trained on PlantVillage",
+      "protocol": "Tested on all of cropped PlantDoc (single leaves)",
+      "accuracy": "-",
+      "field_test": "19.73% / 30.78% / 39.87%",
+      "source": "arXiv:1911.10317, Table 2"
+    },
+    {
+      "work": "Singh et al. 2020 (PlantDoc)",
+      "model": "VGG16",
+      "dataset": "ImageNet + PlantVillage weights, fine-tuned on 80% of uncropped PlantDoc",
+      "protocol": "Tested on 20% of uncropped PlantDoc",
+      "accuracy": "-",
+      "field_test": "29.73% (F1 0.28)",
+      "source": "arXiv:1911.10317, Table 1"
+    },
+    {
+      "work": "Singh et al. 2020 (PlantDoc)",
+      "model": "InceptionResNetV2",
+      "dataset": "ImageNet + PlantVillage weights, fine-tuned on 80% of cropped PlantDoc",
+      "protocol": "Tested on 20% of cropped PlantDoc",
+      "accuracy": "-",
+      "field_test": "70.53% (F1 0.70)",
+      "source": "arXiv:1911.10317, Table 2"
+    },
+    {
+      "work": "Noyan 2022",
+      "model": "Classifier on 8 background pixels only",
+      "dataset": "PlantVillage",
+      "protocol": "Held-out test set",
+      "accuracy": "49.0% (random guessing 2.6%)",
+      "field_test": "Shows label-correlated capture bias in PlantVillage",
+      "source": "arXiv:2206.04374, abstract"
+    }
+  ]
+}

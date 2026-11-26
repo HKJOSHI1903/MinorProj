@@ -1,0 +1,28 @@
+**Cross-dataset test: trained on PlantVillage (lab), tested on PlantDoc (field photos)**
+
+| Model | PlantDoc split | Photos | Accuracy % | Macro-F1 % | Restricted acc. % | Restricted macro-F1 % | Crop correct % | Healthy vs diseased % | Answered at 70% conf. % | Accuracy when answered % |
+|---|---|---|---|---|---|---|---|---|---|---|
+| MobileNetV2 (frozen) | official | 235 | 26.81 | 24.68 | 29.79 | 25.71 | 50.64 | 77.02 | 14.5 | 47.1 |
+| MobileNetV2 (frozen) | deduplicated | 221 | 26.70 | 24.17 | 29.86 | 25.28 | 50.23 | 76.92 | 14.9 | 45.5 |
+| MobileNetV2 (fine-tuned) | official | 235 | 30.21 | 27.11 | 31.49 | 27.01 | 52.77 | 83.83 | 31.5 | 50.0 |
+| MobileNetV2 (fine-tuned) | deduplicated | 221 | 30.32 | 26.01 | 31.67 | 25.96 | 53.39 | 83.26 | 30.8 | 51.5 |
+| MobileNetV2 (fine-tuned) + QAA | official | 235 | 37.87 | 37.00 | 38.30 | 35.73 | 59.15 | 90.64 | 31.1 | 52.1 |
+| MobileNetV2 (fine-tuned) + QAA | deduplicated | 221 | 38.01 | 35.81 | 38.46 | 34.58 | 59.28 | 90.05 | 31.2 | 52.2 |
+| EfficientNetV2-B0 (fine-tuned) + QAA | official | 235 | 34.89 | 34.11 | 37.45 | 34.40 | 62.55 | 86.38 | 44.3 | 51.0 |
+| EfficientNetV2-B0 (fine-tuned) + QAA | deduplicated | 221 | 36.20 | 34.31 | 38.91 | 34.53 | 62.44 | 85.52 | 42.5 | 54.3 |
+| MobileNetV3-L (fine-tuned) + QAA | official | 235 | 32.77 | 32.08 | 35.74 | 34.05 | 59.15 | 88.94 | 32.8 | 48.1 |
+| MobileNetV3-L (fine-tuned) + QAA | deduplicated | 221 | 33.03 | 31.00 | 36.20 | 33.15 | 59.28 | 88.24 | 33.5 | 47.3 |
+| ResNet50V2 (fine-tuned) + QAA | official | 235 | 28.51 | 27.27 | 32.34 | 28.98 | 54.47 | 83.40 | 30.2 | 46.5 |
+| ResNet50V2 (fine-tuned) + QAA | deduplicated | 221 | 28.96 | 26.97 | 33.03 | 28.62 | 54.30 | 82.81 | 30.8 | 45.6 |
+| DenseNet121 (fine-tuned) + QAA | official | 235 | 27.66 | 26.18 | 30.64 | 27.32 | 51.91 | 87.66 | 20.9 | 55.1 |
+| DenseNet121 (fine-tuned) + QAA | deduplicated | 221 | 28.51 | 26.38 | 31.22 | 26.84 | 52.49 | 86.88 | 21.7 | 56.2 |
+| EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc | official | 235 | 63.83 | 62.79 | 64.26 | 62.76 | 85.96 | 94.47 | 64.7 | 74.3 |
+| EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc | deduplicated | 221 | 65.61 | 63.17 | 66.06 | 63.04 | 85.52 | 94.12 | 62.9 | 77.7 |
+| MobileNetV2 (frozen) + auto-correct | official | 235 | 26.81 | 24.72 | 29.79 | 25.72 | 50.64 | 76.60 | 14.9 | 45.7 |
+| MobileNetV2 (frozen) + auto-correct | deduplicated | 221 | 26.70 | 24.21 | 29.86 | 25.28 | 50.23 | 76.47 | 15.4 | 44.1 |
+| MobileNetV2 (fine-tuned) + QAA + auto-correct | official | 235 | 37.87 | 37.05 | 38.30 | 35.69 | 59.15 | 90.64 | 31.5 | 51.4 |
+| MobileNetV2 (fine-tuned) + QAA + auto-correct | deduplicated | 221 | 38.01 | 35.86 | 38.46 | 34.54 | 59.28 | 90.05 | 31.7 | 51.4 |
+| Handcrafted + Random Forest | official | 235 | 4.68 | 2.87 | 5.53 | 3.37 | 23.40 | 59.15 | 0.0 | - |
+| Handcrafted + Random Forest | deduplicated | 221 | 4.52 | 2.46 | 5.43 | 3.22 | 22.62 | 58.37 | 0.0 | - |
+| Handcrafted + SVM | official | 235 | 3.40 | 3.47 | 5.53 | 3.59 | 21.28 | 68.51 | 43.8 | 1.0 |
+| Handcrafted + SVM | deduplicated | 221 | 2.71 | 2.72 | 4.98 | 3.36 | 20.81 | 69.68 | 44.8 | 0.0 |

@@ -1,0 +1,10 @@
+**Published results as reported by their authors (protocols differ, so the numbers are indicative, not a head-to-head comparison)**
+
+| Work | Model | Dataset | Protocol | Accuracy | Field / cross-dataset |
+|---|---|---|---|---|---|
+| Mohanty et al. 2016 | GoogLeNet, transfer learning | PlantVillage, colour (54,306 photos, 38 classes) | 80/20 random split | 99.35% | 31.40% on 121 web photos taken in other conditions (47.93% when the crop is given) |
+| Singh et al. 2020 (PlantDoc) | VGG16 | Trained on PlantVillage | Tested on all of uncropped PlantDoc, 100 x 100 input | - | 15.08% (F1 0.15) |
+| Singh et al. 2020 (PlantDoc) | VGG16 / InceptionV3 / InceptionResNetV2 | Trained on PlantVillage | Tested on all of cropped PlantDoc (single leaves) | - | 19.73% / 30.78% / 39.87% |
+| Singh et al. 2020 (PlantDoc) | VGG16 | ImageNet + PlantVillage weights, fine-tuned on 80% of uncropped PlantDoc | Tested on 20% of uncropped PlantDoc | - | 29.73% (F1 0.28) |
+| Singh et al. 2020 (PlantDoc) | InceptionResNetV2 | ImageNet + PlantVillage weights, fine-tuned on 80% of cropped PlantDoc | Tested on 20% of cropped PlantDoc | - | 70.53% (F1 0.70) |
+| Noyan 2022 | Classifier on 8 background pixels only | PlantVillage | Held-out test set | 49.0% (random guessing 2.6%) | Shows label-correlated capture bias in PlantVillage |

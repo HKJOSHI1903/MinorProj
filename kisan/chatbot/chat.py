@@ -1,8 +1,8 @@
-"""Answer a farmer's question from the knowledge base, using Claude to write the answer.
+"""Answer a farmer's question from the knowledge base, using an optional LLM.
 
 The flow for every question:
 1. Retrieve the passages closest to the question (retriever.py).
-2. Send Claude the passages, the farmer's latest scan or crop result (if any)
+2. Send the passages, the farmer's latest scan or crop result (if any)
    and the question, with instructions to answer only from the passages.
 3. Return the answer with the names of the documents it came from.
 
@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 from . import retriever
 
-load_dotenv()  # reads ANTHROPIC_API_KEY from a .env file in the project folder, if there is one
+load_dotenv()  # reads chatbot provider settings from the project .env file
 
 MODEL = os.environ.get("KISAN_CHAT_MODEL", "claude-opus-5-5")
 MAX_HISTORY_TURNS = 8      # earlier turns are dropped to keep requests small
@@ -55,15 +55,23 @@ would use, and keep product names, scheme names and numbers as they are."""
 
 
 class AssistantUnavailable(Exception):
-    """Claude could not be reached or refused; the caller falls back to the passages."""
+    """An LLM could not be reached or refused; the caller falls back to passages."""
 
 
 def ai_available() -> bool:
-    return bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))
+    """True when either supported answer generation provider is configured."""
+    provider = os.environ.get("KISAN_CHAT_PROVIDER", "auto").lower()
+    has_claude = bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))
+    has_groq = bool(os.environ.get("GROQ_API_KEY"))
+    if provider == "groq":
+        return has_groq
+    if provider == "claude":
+        return has_claude
+    return has_groq or has_claude
 
 
 def describe_context(context: dict | None) -> str:
-    """Turn the farmer's latest app result into a sentence Claude can use."""
+    """Turn the farmer's latest app result into a sentence the assistant can use."""
     if not context:
         return ""
     if context.get("type") == "disease":
@@ -105,28 +113,29 @@ def build_user_turn(message: str, passages: list[dict], context: dict | None, la
             f"Farmer's question: {message}")
 
 
+def _conversation(message: str, passages: list[dict], context: dict | None, language: str,
+                  history: list[dict]) -> list[dict]:
+    turns = [{"role": turn["role"], "content": str(turn["content"])[:MAX_MESSAGE_CHARS]}
+             for turn in history[-MAX_HISTORY_TURNS:]
+             if turn.get("role") in ("user", "assistant") and turn.get("content")]
+    while turns and turns[0]["role"] != "user":
+        turns.pop(0)
+    turns.append({"role": "user", "content": build_user_turn(message, passages, context, language)})
+    return turns
+
+
 def ask_claude(message: str, passages: list[dict], context: dict | None, language: str,
                history: list[dict]) -> str:
     import anthropic
 
-    turns = [{"role": turn["role"], "content": str(turn["content"])[:MAX_MESSAGE_CHARS]}
-             for turn in history[-MAX_HISTORY_TURNS:]
-             if turn.get("role") in ("user", "assistant") and turn.get("content")]
-    while turns and turns[0]["role"] != "user":  # the conversation must start with the farmer
-        turns.pop(0)
-    turns.append({"role": "user", "content": build_user_turn(message, passages, context, language)})
+    turns = _conversation(message, passages, context, language, history)
 
     try:
-        response = anthropic.Anthropic().beta.messages.create(
+        response = anthropic.Anthropic().messages.create(
             model=MODEL,
-            max_tokens=16000,
+            max_tokens=1200,
             system=SYSTEM_PROMPT,
             messages=turns,
-            # Short factual answers do not need deep reasoning; low effort keeps replies quick and cheap.
-            output_config={"effort": "low"},
-            # If a safety classifier declines the request, the API retries it on a fallback model.
-            betas=["server-side-fallback-2026-07-01"],
-            fallbacks="default",
         )
     except anthropic.AuthenticationError as error:
         raise AssistantUnavailable("The API key was rejected.") from error
@@ -147,6 +156,48 @@ def ask_claude(message: str, passages: list[dict], context: dict | None, languag
     return answer
 
 
+def ask_groq(message: str, passages: list[dict], context: dict | None, language: str,
+             history: list[dict]) -> str:
+    """Generate a concise answer using Groq's free developer tier."""
+    from openai import OpenAI, APIConnectionError, APIStatusError, RateLimitError, AuthenticationError
+
+    turns = [{"role": "system", "content": SYSTEM_PROMPT},
+             *_conversation(message, passages, context, language, history)]
+    try:
+        response = OpenAI(
+            api_key=os.environ["GROQ_API_KEY"],
+            base_url="https://api.groq.com/openai/v1",
+        ).chat.completions.create(
+            model=os.environ.get("KISAN_GROQ_MODEL", "llama-3.3-70b-versatile"),
+            messages=turns,
+            max_tokens=1200,
+            temperature=0.2,
+        )
+    except AuthenticationError as error:
+        raise AssistantUnavailable("The Groq API key was rejected.") from error
+    except RateLimitError as error:
+        raise AssistantUnavailable("The free assistant is busy. Try again in a minute.") from error
+    except APIStatusError as error:
+        raise AssistantUnavailable(f"The assistant returned an error ({error.status_code}).") from error
+    except APIConnectionError as error:
+        raise AssistantUnavailable("The assistant could not be reached. Check the internet connection.") from error
+    answer = (response.choices[0].message.content or "").strip()
+    if not answer:
+        raise AssistantUnavailable("The assistant returned an empty answer.")
+    return answer
+
+
+def ask_llm(message: str, passages: list[dict], context: dict | None, language: str,
+            history: list[dict]) -> str:
+    """Use configured provider; in auto mode prefer Groq, then Claude."""
+    provider = os.environ.get("KISAN_CHAT_PROVIDER", "auto").lower()
+    if provider == "groq" or (provider == "auto" and os.environ.get("GROQ_API_KEY")):
+        return ask_groq(message, passages, context, language, history)
+    if provider == "claude" or (provider == "auto" and (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))):
+        return ask_claude(message, passages, context, language, history)
+    raise AssistantUnavailable("No chatbot provider is configured.")
+
+
 def sources_of(passages: list[dict]) -> list[dict]:
     """The distinct documents the passages came from, in order of relevance."""
     seen, sources = set(), []
@@ -162,7 +213,7 @@ def answer(message: str, language: str = "en", context: dict | None = None,
            history: list[dict] | None = None) -> dict:
     """Answer one question.
 
-    mode is "ai" (Claude wrote the answer), "passages" (no key or Claude failed:
+    mode is "ai" (an LLM wrote the answer), "passages" (no key or LLM failed:
     the matching passages are returned as they are) or "no_match" (nothing relevant found
     and no AI to say so in the farmer's language).
     """
@@ -172,7 +223,7 @@ def answer(message: str, language: str = "en", context: dict | None = None,
 
     if ai_available():
         try:
-            return {**result, "mode": "ai", "answer": ask_claude(message, passages, context, language, history or [])}
+            return {**result, "mode": "ai", "answer": ask_llm(message, passages, context, language, history or [])}
         except AssistantUnavailable as error:
             result["notice"] = str(error)
 

@@ -1,0 +1,93 @@
+{
+  "max_distance": 4,
+  "test_images": 235,
+  "near_duplicates": 14,
+  "duplicates": [
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Blueberry leaf\\blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn Gray leaf spot\\IMG_42231.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn leaf blight\\2015070295153021.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn leaf blight\\corn-gray-leaf-spot-f4.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf early blight\\backus-056-potato-blight.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf early blight\\earlyblightpotato.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\1421_0.jpeg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\irish-blight-symptoms-on-potato-leaves-atmf8b.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato Septoria leaf spot\\early-blight-septoria-ls-fig-3.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf bacterial spot\\07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf bacterial spot\\tomato_V8.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf late blight\\18c.jpg",
+    "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf yellow virus\\tylcv-seminar-1-638.jpg"
+  ],
+  "examples": [
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Blueberry leaf\\blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Blueberry leaf\\blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn Gray leaf spot\\IMG_42231.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Corn leaf blight\\IMG_42231.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn leaf blight\\2015070295153021.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Corn Gray leaf spot\\2015070295153021.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Corn leaf blight\\corn-gray-leaf-spot-f4.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Corn Gray leaf spot\\corn-gray-leaf-spot-f4.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf early blight\\backus-056-potato-blight.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Potato leaf late blight\\backus-056-potato-blight.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf early blight\\earlyblightpotato.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato Early blight leaf\\earlyblightpotato.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\1421_0.jpeg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Potato leaf early blight\\1421_0.jpeg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Potato leaf early blight\\5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Potato leaf late blight\\irish-blight-symptoms-on-potato-leaves-atmf8b.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Potato leaf early blight\\irish-blight-symptoms-on-potato-leaves-atmf8b.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf bacterial spot\\07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato leaf bacterial spot\\bacterial-canker3x2400-2ia1kgd.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf bacterial spot\\tomato_V8.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato Septoria leaf spot\\tomato_V8.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf late blight\\18c.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato leaf late blight\\late_blight1.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato leaf yellow virus\\tylcv-seminar-1-638.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato leaf yellow virus\\tylcv-seminar-1-638.jpg",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\test\\Tomato Septoria leaf spot\\early-blight-septoria-ls-fig-3.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantdoc\\train\\Tomato Septoria leaf spot\\early-blight-septoria-ls-fig-3.jpg",
+      "distance": 0
+    }
+  ]
+}

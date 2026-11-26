@@ -8,7 +8,7 @@ const messages = ref([]) // { id, role: 'user' | 'assistant', text, mode, source
 
 <script setup>
 // Module 3: the farming assistant. Questions go to the server, which finds the
-// matching passages in the knowledge base and (with an API key) has Claude write the answer.
+// matching passages in the knowledge base and (with an API key) has an LLM write the answer.
 import { ArrowUp, BookOpen, Leaf, Mic, PhoneCall, Plus, Sparkles, Sprout, Volume2, VolumeX, X } from 'lucide-vue-next'
 import { computed, nextTick, onBeforeUnmount, onMounted } from 'vue'
 import { chatStatus, sendChat } from '../../lib/api'

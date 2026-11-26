@@ -1,0 +1,799 @@
+{
+  "tolerance": 0.05,
+  "models": {
+    "E8_best_ft_qaa_plantdoc": {
+      "brightness_low": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 12.256117820739746,
+        "threshold_key": "min_brightness"
+      },
+      "brightness_high": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.888732394366198,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 236.25439816327165,
+        "threshold_key": "max_brightness"
+      },
+      "brightness_low_underexposed": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true,
+        "measure": "underexposed",
+        "measured_value": 0.050462372448979595,
+        "threshold_key": "max_underexposed"
+      },
+      "brightness_high_overexposed": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.888732394366198,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "overexposed",
+        "measured_value": 0.675545207629707,
+        "threshold_key": "max_overexposed"
+      },
+      "contrast_low": {
+        "family": "contrast",
+        "side": "low",
+        "level": 0.14951048951048942,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "contrast",
+        "measured_value": 6.026016761539696,
+        "threshold_key": "min_contrast"
+      },
+      "gamma_high_brightness": {
+        "family": "gamma",
+        "side": "high",
+        "level": 4.0,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 22.37074565887451
+      },
+      "gamma_low_brightness": {
+        "family": "gamma",
+        "side": "low",
+        "level": 0.3,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 200.96149444580078
+      },
+      "color_cast_low": {
+        "family": "color_cast",
+        "side": "low",
+        "level": -0.5,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true
+      },
+      "color_cast_high": {
+        "family": "color_cast",
+        "side": "high",
+        "level": 0.5,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true
+      },
+      "gaussian_noise_high": {
+        "family": "gaussian_noise",
+        "side": "high",
+        "level": 72.7692307692308,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 63.826602858115294,
+        "threshold_key": "max_noise"
+      },
+      "salt_pepper_high_noise": {
+        "family": "salt_pepper",
+        "side": "high",
+        "level": 0.1313207547169813,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 42.610582806147946,
+        "threshold_key": "max_noise"
+      },
+      "speckle_high_noise": {
+        "family": "speckle",
+        "side": "high",
+        "level": 0.5,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": true,
+        "measure": "noise",
+        "measured_value": 68.76631916330456,
+        "threshold_key": "max_noise"
+      },
+      "gaussian_blur_high_sharpness": {
+        "family": "gaussian_blur",
+        "side": "high",
+        "level": 4.353153153153155,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 1.069871571472099,
+        "threshold_key": "min_sharpness"
+      },
+      "motion_blur_high_sharpness": {
+        "family": "motion_blur",
+        "side": "high",
+        "level": 15.232098765432106,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 27.145188837875544,
+        "threshold_key": "min_sharpness"
+      },
+      "jpeg_low": {
+        "family": "jpeg",
+        "side": "low",
+        "level": 9.550432276657057,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false
+      },
+      "resolution_low": {
+        "family": "resolution",
+        "side": "low",
+        "level": 29.54782608695651,
+        "clean_accuracy": 0.9946351931330472,
+        "tolerated_whole_range": false,
+        "threshold_key": "min_side"
+      }
+    },
+    "E1_mnv2_frozen_std": {
+      "brightness_low": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.5701234567901233,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 69.86689419216579,
+        "threshold_key": "min_brightness"
+      },
+      "brightness_high": {
+        "family": "brightness",
+        "side": "high",
+        "level": 1.7576470588235296,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 201.34646875718062,
+        "threshold_key": "max_brightness"
+      },
+      "brightness_low_underexposed": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.5701234567901233,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "underexposed",
+        "measured_value": 0.0,
+        "threshold_key": "max_underexposed"
+      },
+      "brightness_high_overexposed": {
+        "family": "brightness",
+        "side": "high",
+        "level": 1.7576470588235296,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "overexposed",
+        "measured_value": 0.2934254951980793,
+        "threshold_key": "max_overexposed"
+      },
+      "contrast_low": {
+        "family": "contrast",
+        "side": "low",
+        "level": 0.5905050505050504,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "contrast",
+        "measured_value": 23.797042971909647,
+        "threshold_key": "min_contrast"
+      },
+      "gamma_high_brightness": {
+        "family": "gamma",
+        "side": "high",
+        "level": 2.2305882352941175,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 58.482065160414756
+      },
+      "gamma_low_brightness": {
+        "family": "gamma",
+        "side": "low",
+        "level": 0.4857297297297296,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 175.19096306878168
+      },
+      "color_cast_low": {
+        "family": "color_cast",
+        "side": "low",
+        "level": -0.22571428571428562,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false
+      },
+      "color_cast_high": {
+        "family": "color_cast",
+        "side": "high",
+        "level": 0.28847457627118633,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false
+      },
+      "gaussian_noise_high": {
+        "family": "gaussian_noise",
+        "side": "high",
+        "level": 5.982758620689655,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 7.667231921004661,
+        "threshold_key": "max_noise"
+      },
+      "salt_pepper_high_noise": {
+        "family": "salt_pepper",
+        "side": "high",
+        "level": 0.0013952095808383244,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 4.587626223910594,
+        "threshold_key": "max_noise"
+      },
+      "speckle_high_noise": {
+        "family": "speckle",
+        "side": "high",
+        "level": 0.0033768115942029017,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 7.090934161020655,
+        "threshold_key": "max_noise"
+      },
+      "gaussian_blur_high_sharpness": {
+        "family": "gaussian_blur",
+        "side": "high",
+        "level": 1.1880208333333335,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 25.365735409657155,
+        "threshold_key": "min_sharpness"
+      },
+      "motion_blur_high_sharpness": {
+        "family": "motion_blur",
+        "side": "high",
+        "level": 3.30846394984326,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 152.31090261046788,
+        "threshold_key": "min_sharpness"
+      },
+      "jpeg_low": {
+        "family": "jpeg",
+        "side": "low",
+        "level": 41.376623376623364,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false
+      },
+      "resolution_low": {
+        "family": "resolution",
+        "side": "low",
+        "level": 90.58217821782179,
+        "clean_accuracy": 0.9232832618025751,
+        "tolerated_whole_range": false,
+        "threshold_key": "min_side"
+      }
+    },
+    "E2_mnv2_ft_std": {
+      "brightness_low": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.5980357142857143,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 73.28751502718245,
+        "threshold_key": "min_brightness"
+      },
+      "brightness_high": {
+        "family": "brightness",
+        "side": "high",
+        "level": 1.576716417910448,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 187.63843973643748,
+        "threshold_key": "max_brightness"
+      },
+      "brightness_low_underexposed": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.5980357142857143,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "underexposed",
+        "measured_value": 0.0,
+        "threshold_key": "max_underexposed"
+      },
+      "brightness_high_overexposed": {
+        "family": "brightness",
+        "side": "high",
+        "level": 1.576716417910448,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "overexposed",
+        "measured_value": 0.16266223490328982,
+        "threshold_key": "max_overexposed"
+      },
+      "contrast_low": {
+        "family": "contrast",
+        "side": "low",
+        "level": 0.6608658008658008,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "contrast",
+        "measured_value": 26.63120645465273,
+        "threshold_key": "min_contrast"
+      },
+      "gamma_high_brightness": {
+        "family": "gamma",
+        "side": "high",
+        "level": 2.6246753246753243,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 46.56422234076959
+      },
+      "gamma_low_brightness": {
+        "family": "gamma",
+        "side": "low",
+        "level": 0.49037037037037035,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 174.54706090291342
+      },
+      "color_cast_low": {
+        "family": "color_cast",
+        "side": "low",
+        "level": -0.1906024096385543,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false
+      },
+      "color_cast_high": {
+        "family": "color_cast",
+        "side": "high",
+        "level": 0.2148235294117647,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false
+      },
+      "gaussian_noise_high": {
+        "family": "gaussian_noise",
+        "side": "high",
+        "level": 11.066037735849056,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 12.06245665158987,
+        "threshold_key": "max_noise"
+      },
+      "salt_pepper_high_noise": {
+        "family": "salt_pepper",
+        "side": "high",
+        "level": 0.009466666666666674,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 7.605642233502281,
+        "threshold_key": "max_noise"
+      },
+      "speckle_high_noise": {
+        "family": "speckle",
+        "side": "high",
+        "level": 0.011172093023255811,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 13.5947652805152,
+        "threshold_key": "max_noise"
+      },
+      "gaussian_blur_high_sharpness": {
+        "family": "gaussian_blur",
+        "side": "high",
+        "level": 1.057190635451505,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 31.678758096854423,
+        "threshold_key": "min_sharpness"
+      },
+      "motion_blur_high_sharpness": {
+        "family": "motion_blur",
+        "side": "high",
+        "level": 4.393220338983053,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 111.3571736610541,
+        "threshold_key": "min_sharpness"
+      },
+      "jpeg_low": {
+        "family": "jpeg",
+        "side": "low",
+        "level": 24.121951219512194,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false
+      },
+      "resolution_low": {
+        "family": "resolution",
+        "side": "low",
+        "level": 95.46666666666665,
+        "clean_accuracy": 0.9865879828326181,
+        "tolerated_whole_range": false,
+        "threshold_key": "min_side"
+      }
+    },
+    "E3_mnv2_ft_qaa": {
+      "brightness_low": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 12.256117820739746,
+        "threshold_key": "min_brightness"
+      },
+      "brightness_high": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.583478260869566,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 231.20335891060208,
+        "threshold_key": "max_brightness"
+      },
+      "brightness_low_underexposed": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true,
+        "measure": "underexposed",
+        "measured_value": 0.050462372448979595,
+        "threshold_key": "max_underexposed"
+      },
+      "brightness_high_overexposed": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.583478260869566,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "overexposed",
+        "measured_value": 0.6103526196484029,
+        "threshold_key": "max_overexposed"
+      },
+      "contrast_low": {
+        "family": "contrast",
+        "side": "low",
+        "level": 0.17778846153846153,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "contrast",
+        "measured_value": 7.166564051463053,
+        "threshold_key": "min_contrast"
+      },
+      "gamma_high_brightness": {
+        "family": "gamma",
+        "side": "high",
+        "level": 4.0,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 22.37074565887451
+      },
+      "gamma_low_brightness": {
+        "family": "gamma",
+        "side": "low",
+        "level": 0.3,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 200.96149444580078
+      },
+      "color_cast_low": {
+        "family": "color_cast",
+        "side": "low",
+        "level": -0.5,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true
+      },
+      "color_cast_high": {
+        "family": "color_cast",
+        "side": "high",
+        "level": 0.5,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": true
+      },
+      "gaussian_noise_high": {
+        "family": "gaussian_noise",
+        "side": "high",
+        "level": 51.1948051948052,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 48.44386001962719,
+        "threshold_key": "max_noise"
+      },
+      "salt_pepper_high_noise": {
+        "family": "salt_pepper",
+        "side": "high",
+        "level": 0.02623076923076928,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 13.663624366097789,
+        "threshold_key": "max_noise"
+      },
+      "speckle_high_noise": {
+        "family": "speckle",
+        "side": "high",
+        "level": 0.18508474576271217,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 47.741152665804414,
+        "threshold_key": "max_noise"
+      },
+      "gaussian_blur_high_sharpness": {
+        "family": "gaussian_blur",
+        "side": "high",
+        "level": 4.087272727272728,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 1.1352677262913096,
+        "threshold_key": "min_sharpness"
+      },
+      "motion_blur_high_sharpness": {
+        "family": "motion_blur",
+        "side": "high",
+        "level": 11.327272727272732,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 37.32062523581763,
+        "threshold_key": "min_sharpness"
+      },
+      "jpeg_low": {
+        "family": "jpeg",
+        "side": "low",
+        "level": 9.970093457943925,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false
+      },
+      "resolution_low": {
+        "family": "resolution",
+        "side": "low",
+        "level": 36.75514018691587,
+        "clean_accuracy": 0.9844420600858369,
+        "tolerated_whole_range": false,
+        "threshold_key": "min_side"
+      }
+    },
+    "E4_effv2b0_ft_qaa": {
+      "brightness_low": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 12.256117820739746,
+        "threshold_key": "min_brightness"
+      },
+      "brightness_high": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.9433333333333342,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "measure": "brightness",
+        "measured_value": 237.15787974039716,
+        "threshold_key": "max_brightness"
+      },
+      "brightness_low_underexposed": {
+        "family": "brightness",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "underexposed",
+        "measured_value": 0.050462372448979595,
+        "threshold_key": "max_underexposed"
+      },
+      "brightness_high_overexposed": {
+        "family": "brightness",
+        "side": "high",
+        "level": 2.9433333333333342,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "measure": "overexposed",
+        "measured_value": 0.6872062340561228,
+        "threshold_key": "max_overexposed"
+      },
+      "contrast_low": {
+        "family": "contrast",
+        "side": "low",
+        "level": 0.1,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "contrast",
+        "measured_value": 4.029089450836182,
+        "threshold_key": "min_contrast"
+      },
+      "gamma_high_brightness": {
+        "family": "gamma",
+        "side": "high",
+        "level": 4.0,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 22.37074565887451
+      },
+      "gamma_low_brightness": {
+        "family": "gamma",
+        "side": "low",
+        "level": 0.3,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "brightness",
+        "measured_value": 200.96149444580078
+      },
+      "color_cast_low": {
+        "family": "color_cast",
+        "side": "low",
+        "level": -0.5,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true
+      },
+      "color_cast_high": {
+        "family": "color_cast",
+        "side": "high",
+        "level": 0.5,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true
+      },
+      "gaussian_noise_high": {
+        "family": "gaussian_noise",
+        "side": "high",
+        "level": 80.0,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "noise",
+        "measured_value": 68.62792596572415,
+        "threshold_key": "max_noise"
+      },
+      "salt_pepper_high_noise": {
+        "family": "salt_pepper",
+        "side": "high",
+        "level": 0.1403921568627452,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "measure": "noise",
+        "measured_value": 44.68003777257098,
+        "threshold_key": "max_noise"
+      },
+      "speckle_high_noise": {
+        "family": "speckle",
+        "side": "high",
+        "level": 0.5,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": true,
+        "measure": "noise",
+        "measured_value": 68.76631916330456,
+        "threshold_key": "max_noise"
+      },
+      "gaussian_blur_high_sharpness": {
+        "family": "gaussian_blur",
+        "side": "high",
+        "level": 4.581052631578948,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 1.013817239811546,
+        "threshold_key": "min_sharpness"
+      },
+      "motion_blur_high_sharpness": {
+        "family": "motion_blur",
+        "side": "high",
+        "level": 19.16615384615385,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "measure": "sharpness",
+        "measured_value": 21.249308160635135,
+        "threshold_key": "min_sharpness"
+      },
+      "jpeg_low": {
+        "family": "jpeg",
+        "side": "low",
+        "level": 9.103092783505154,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false
+      },
+      "resolution_low": {
+        "family": "resolution",
+        "side": "low",
+        "level": 27.88571428571428,
+        "clean_accuracy": 0.9919527896995708,
+        "tolerated_whole_range": false,
+        "threshold_key": "min_side"
+      }
+    }
+  },
+  "app_thresholds": {
+    "E8_best_ft_qaa_plantdoc": {
+      "min_brightness": 12.26,
+      "max_brightness": 236.25,
+      "max_overexposed": 0.6755,
+      "min_contrast": 6.03,
+      "max_noise": 42.61,
+      "min_sharpness": 27.15,
+      "min_side": 30
+    },
+    "E1_mnv2_frozen_std": {
+      "min_brightness": 69.87,
+      "max_brightness": 201.35,
+      "max_underexposed": 0.0,
+      "max_overexposed": 0.2934,
+      "min_contrast": 23.8,
+      "max_noise": 4.59,
+      "min_sharpness": 152.31,
+      "min_side": 91
+    },
+    "E2_mnv2_ft_std": {
+      "min_brightness": 73.29,
+      "max_brightness": 187.64,
+      "max_underexposed": 0.0,
+      "max_overexposed": 0.1627,
+      "min_contrast": 26.63,
+      "max_noise": 7.61,
+      "min_sharpness": 111.36,
+      "min_side": 96
+    },
+    "E3_mnv2_ft_qaa": {
+      "min_brightness": 12.26,
+      "max_brightness": 231.2,
+      "max_overexposed": 0.6104,
+      "min_contrast": 7.17,
+      "max_noise": 13.66,
+      "min_sharpness": 37.32,
+      "min_side": 37
+    },
+    "E4_effv2b0_ft_qaa": {
+      "min_brightness": 12.26,
+      "max_brightness": 237.16,
+      "max_overexposed": 0.6872,
+      "min_contrast": 4.03,
+      "max_noise": 44.68,
+      "min_sharpness": 21.25,
+      "min_side": 28
+    }
+  }
+}

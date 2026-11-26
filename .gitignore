@@ -24,3 +24,9 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Research experiments (python -m research.*): GPU venv, image caches, trained runs, logs
+.venv-gpu/
+research/cache/
+research/runs/
+research/logs/

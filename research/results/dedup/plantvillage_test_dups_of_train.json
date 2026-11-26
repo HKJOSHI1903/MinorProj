@@ -1,0 +1,258 @@
+{
+  "max_distance": 4,
+  "test_images": 8146,
+  "near_duplicates": 59,
+  "same_class": 47,
+  "examples": [
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\a2f81059-9171-41d2-acca-ef3d02d81438___Rut._Bact.S 1209.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\640a41e4-32af-417b-8055-00012097725f___Rut._Bact.S 0856.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Strawberry___Leaf_scorch\\aed8624d-676c-453f-a0af-cfee0fac55f9___RS_L.Scorch 0869.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Strawberry___Leaf_scorch\\03e9b07f-582d-4a76-9a9c-aeacc96e4284___RS_L.Scorch 0870.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\dd4bf9f1-3395-478e-a7b5-2caacdf8c2cd___RS_HL 6159.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Leaf_Mold\\aac3fb74-6413-4f4b-ba38-82fe0f2f135d___Crnl_L.Mold 8942.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\f6d5ad61-dfaf-4083-a9af-1b0755ec0a5d___YLCV_GCREC 2381.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Bacterial_spot\\a2347956-94dc-441c-80b4-f663e8b2edbd___GCREC_Bact.Sp 6054.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___healthy\\488feb1c-4b9f-44e7-8aa6-4103a9601f5f___GH_HL Leaf 434.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___healthy\\a5de43e7-fc2f-4a14-a8e6-c0f2f94c84f1___GH_HL Leaf 434.JPG",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Pepper,_bell___healthy\\d301e47d-fdfe-4143-b046-10a7e7c21c09___JR_HL 8537.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Pepper,_bell___healthy\\fb7d12ae-ac5d-4593-8f17-1f248a6ff331___JR_HL 8539.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___healthy\\c0ef1466-26c8-460c-a2b8-d72c5caf0792___JR_HL 4275.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___healthy\\70cd29ea-fe96-4f8e-961b-3aa02db4a014___JR_HL 4278.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\ea701d68-d8da-4258-9bce-f0d272de9438___RS_HL 3850.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\1c801474-f064-4b50-8d7c-50f32ed242aa___RS_HL 3859.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\99763ea8-2e71-403a-95c3-f3ded1292568___RS_HL 6094.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\14524ad3-b360-4527-a0cd-1d07842ee919___RS_HL 6093.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\f0ade6d4-9a61-4f49-8b6f-b97bfa8d3005___CREC_HLB 3999.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\43a17ced-e9e8-459d-9bc3-65e8fafa75c0___CREC_HLB 3935.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\45b0bcf9-1f53-4414-9cb2-d54c519cabe3___RS_HL 5902.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\dfdb9d31-68a9-4ca0-92e9-cdfe615831fd___RS_HL 5914.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\c0ecc123-52bd-4cbb-aa65-a832e97c3812___RS_HL 6544.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\b6b0ce43-ebe2-4ea9-b575-9ba152cd073b___RS_HL 6546.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\50e07867-1835-4031-9752-b5c62bb94f12___Rut._Bact.S 1277.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\633d70b7-6357-46f7-a4f8-3e924e22ef15___Rut._Bact.S 1161.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\12a2ab1f-a6f1-475a-8cd6-59b03fdede6f___RS_HL 4315.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\b633d977-9372-4286-9a34-792b7fae45b8___YLCV_GCREC 2622.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\525ea422-bb9d-47fd-b3e5-cfabf3e989fd___FREC_Pwd.M 4704.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\c871d4ee-1726-4873-9e5c-ffe67de425fb___FREC_Pwd.M 4705.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\8e1d33cf-3bfc-4d9c-8768-8e0e82de2934___RS_HL 5165.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\58340050-1669-4284-ab1a-dd8f77383d25___RS_HL 5211.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\5a771eed-8089-4983-b714-f4fd566dc5b7___RS_HL 7356.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\b63f931e-8dad-462a-afa7-fcbca4ce958a___CREC_HLB 4002.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Late_blight\\d6e6897a-5083-4914-9903-804c5684a956___GHLB2 Leaf 102.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Late_blight\\d81682aa-746b-4e07-af2b-52ebb6f4c017___GHLB2 Leaf 102.JPG",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\9b8d60dd-5548-439c-a831-eb23e5543210___RS_HL 6261.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\4ea9a847-7a61-46e8-a5a9-2e9a02ea422b___RS_HL 6263.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\56a8722c-1acf-4f63-ba8c-66df35f47791___RS_HL 6311.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\fcc84bbd-4691-4faf-9ae3-b4166e887249___RS_HL 6313.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\f2d001e7-f2b4-49ed-bd5e-119753a8293a___RS_HL 7200.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\d6ff7689-cca4-493e-a75a-e56618ea32c1___RS_HL 7191.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Blueberry___healthy\\d0226900-7020-4d34-89ce-382b66c7982f___RS_HL 5363.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Blueberry___healthy\\e86a7181-35c2-4228-b1bb-0d44fdde614b___RS_HL 5353.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Potato___Early_blight\\5aee3e9f-0469-42e7-8ae7-56f7a1900fd5___RS_Early.B 9091.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Potato___Early_blight\\bc378ba0-533d-42db-a8b2-82decc73f4d5___RS_Early.B 9092.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\a0757154-32ee-4149-8efc-230b859649b7___UF.Citrus_HLB_Lab 0067.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\04b15fba-368c-4499-a056-5f494181c8c7___UF.Citrus_HLB_Lab 0070.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Pepper,_bell___healthy\\c40b6a46-5181-43ad-a27d-7e68fcd20f87___JR_HL 8553.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Pepper,_bell___healthy\\75306d8b-d8f7-440a-9084-7f1dc02fe794___JR_HL 8552.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Apple___healthy\\fdbfa6f7-f887-442d-8df1-1f0cf839fc4d___RS_HL 6274.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Apple___healthy\\f2cda910-55c7-46d7-b1a2-9a3bb9792148___RS_HL 6274.JPG",
+      "distance": 0
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\6f8693a0-9f00-4c8d-b57b-217dac181680___RS_HL 5860.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\04f9ace6-096a-40ab-8e3b-2a3be9eb8464___RS_HL 5862.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\35f16024-14f3-43d6-8e35-8acf193f5753___CREC_HLB 6402.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\9b95a55c-1769-4023-a5cd-a5f0b7abb299___CREC_HLB 5526.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Grape___Esca_(Black_Measles)\\e58e8a6b-5bcf-414c-8891-ff7d891ef5f6___FAM_B.Msls 3798.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Grape___Black_rot\\04af92d1-7da1-49a8-aba6-f7110b52a90f___FAM_B.Rot 3546.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Bacterial_spot\\638774fe-d7e6-4920-a8d9-e39b9c308474___GCREC_Bact.Sp 5806.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\308b75e8-49e7-4168-9796-9c49875cc403___RS_HL 6214.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Grape___Black_rot\\94ca753c-df3b-470f-9dab-f497f883d221___FAM_B.Rot 0472.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\de19a3e0-8451-4315-befc-a5e0f776a1e2___CREC_HLB 3964.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\e7fe2094-95a1-40fe-ba1d-687ab0756edb___FREC_Pwd.M 0541.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\17a1b5f6-cd54-4c25-b9b5-23e098ac16d0___FREC_Pwd.M 0542.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Strawberry___Leaf_scorch\\cb060904-20f5-4192-b4bf-83ee54be17f0___RS_L.Scorch 1287.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Strawberry___Leaf_scorch\\97fc0a8d-280a-44e2-811d-71419f9a5526___RS_L.Scorch 1277.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___healthy\\ee08caf8-fa0d-4a79-bb2e-5399197d01e4___JR_HL 4279.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___healthy\\7feb145d-637f-4ce2-8f79-eb0be1160a86___JR_HL 4285.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\1dc700ed-063d-45fb-a9e7-51e8c37f83e6___RS_HL 6174.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\216d875e-1645-45bf-8578-f6496d9b12b1___RS_HL 6795.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\dea9aa6e-e872-44b6-9a17-775308bd5dab___UF.Citrus_HLB_Lab 9835.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\76e2b2d5-992e-4d06-aeb6-4335b3b7e164___UF.Citrus_HLB_Lab 9877.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Late_blight\\9b0836db-9e56-4dc2-ba79-2d02907eaee1___GHLB2 Leaf 9048.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Late_blight\\a5af0d83-aba8-4353-bfa4-ea4f959d9787___GHLB2 Leaf 9052.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\e5e2cdea-35bb-4833-a48a-88bfdf0e9ab0___CREC_HLB 7571.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Orange___Haunglongbing_(Citrus_greening)\\e251d1bd-559b-475c-b82b-3c8d05caf916___CREC_HLB 4379.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\3d6cdde9-1708-49bc-86d1-9ded722bf89a___RS_HL 6389.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\3c3800b5-000f-4e75-bc21-64493fe58892___RS_HL 6387.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Late_blight\\d674cbf6-0cdc-407a-97ea-c3f53f2c51e4___GH_HL Leaf 170.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___healthy\\883b7c13-7aef-4ae9-bd70-065a16226e9d___GH_HL Leaf 170.1.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Grape___Leaf_blight_(Isariopsis_Leaf_Spot)\\dde6a496-e297-4d30-8cbb-eda1b202b841___FAM_L.Blight 1472.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Grape___Esca_(Black_Measles)\\79823d7a-f18b-425b-986d-b0e10e252c71___FAM_B.Msls 3961.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\1802387a-2c1e-4700-aa3f-2535c62278f0___UF.GRC_YLCV_Lab 02097.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\d65b18d5-1584-4022-bd18-79c1b181056e___UF.GRC_YLCV_Lab 02098.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Corn_(maize)___healthy\\515cfd7f-995c-4843-93f7-dc2c012db476___R.S_HL 7877 copy 2.jpg",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Corn_(maize)___healthy\\6cc79c8d-90b8-4343-94da-98c8edc968e3___R.S_HL 5553 copy.jpg",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\c981ad37-f87c-43df-8577-4dc4f32551ff___Rut._Bact.S 0749.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Peach___Bacterial_spot\\44374a48-d73b-488f-bd16-6fea7e27f8cb___Rut._Bact.S 0764.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\67d2f3a2-4e04-4410-9168-df251b01aeff___RS_HL 5692 1.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\d09dabd7-0e9b-450d-af71-6e432ff9119b___RS_HL 5701 1.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\358483b0-338a-47f7-8863-868ca4c9f52f___RS_HL 5536 1.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\72234468-dde7-4035-a55c-da6857c4101d___RS_HL 4031.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Blueberry___healthy\\17f38da5-9764-456e-9c16-436ec1d69041___RS_HL 0590.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Blueberry___healthy\\fe4de3f6-ef8e-4e3f-b180-f8dd1c3d54cc___RS_HL 0591.JPG",
+      "distance": 4
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Raspberry___healthy\\7626213e-3f4a-4551-b7f0-3c0915e267d9___Mary_HL 9196.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Raspberry___healthy\\27ef7a65-771c-4eab-9169-03a5fa121c71___Mary_HL 9195.JPG",
+      "distance": 2
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\910283ff-e130-48c1-9a7d-a379a90e8bf4___FREC_Pwd.M 0381.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Cherry_(including_sour)___Powdery_mildew\\c327e44c-a0df-4811-89da-af4a761aeefb___FREC_Pwd.M 0380.JPG",
+      "distance": 3
+    },
+    {
+      "test": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\4fdc663e-a8ea-4d8a-801b-ef18ad192661___RS_HL 6453.JPG",
+      "train": "C:\\DEVarea\\MinorProj\\data\\plantvillage_full\\Soybean___healthy\\ec74467e-7815-477e-ba79-061a6ff16446___RS_HL 6451.JPG",
+      "distance": 4
+    }
+  ]
+}

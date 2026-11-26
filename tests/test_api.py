@@ -48,6 +48,29 @@ def test_predict_returns_prediction_alternatives_and_advice(client):
     assert body["advice"] is not None and body["disclaimer"]
 
 
+def test_predict_reports_photo_quality(client):
+    # 224 px, so the resize to the model input does not average the noise away.
+    body = client.post("/api/disease/predict", data={"image": (png_bytes(224, 224), "leaf.png")},
+                       content_type="multipart/form-data").get_json()
+    quality = body["quality"]
+    assert set(quality) >= {"ok", "issues", "advice", "measures"}
+    assert set(quality["measures"]) >= {"brightness", "contrast", "sharpness", "noise", "min_side"}
+    assert "noisy" in quality["issues"]          # uniform random pixels are pure noise
+    assert len(quality["advice"]) == len(quality["issues"])
+
+
+def test_dark_photo_gets_retake_advice(client):
+    dark = np.full((256, 256, 3), 3, "uint8")    # far below any brightness the model copes with
+    dark[64:192, 64:192] = (3, 9, 2)
+    buffer = io.BytesIO()
+    Image.fromarray(dark).save(buffer, format="PNG")
+    buffer.seek(0)
+    body = client.post("/api/disease/predict", data={"image": (buffer, "dark.png")},
+                       content_type="multipart/form-data").get_json()
+    assert "too_dark" in body["quality"]["issues"]
+    assert body["quality"]["ok"] is False
+
+
 def test_random_noise_is_flagged_as_low_confidence(client):
     body = client.post("/api/disease/predict", data={"image": (png_bytes(), "noise.png")},
                        content_type="multipart/form-data").get_json()

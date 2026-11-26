@@ -1,0 +1,14 @@
+**McNemar's test p-values on the PlantVillage test (* = significant at 0.05)**
+
+| Model | MobileNetV2 (frozen) | MobileNetV2 (fine-tuned) | MobileNetV2 (fine-tuned) + QAA | EfficientNetV2-B0 (fine-tuned) + QAA | MobileNetV3-L (fine-tuned) + QAA | ResNet50V2 (fine-tuned) + QAA | DenseNet121 (fine-tuned) + QAA | EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc | Handcrafted + Random Forest | Handcrafted + SVM |
+|---|---|---|---|---|---|---|---|---|---|---|
+| MobileNetV2 (frozen) | – | 7.2e-112* | 5.1e-98* | 1.2e-118* | 1.4e-115* | 8.4e-88* | 1.3e-100* | 8.7e-121* | 6.9e-04* | 1.0e-05* |
+| MobileNetV2 (fine-tuned) | 7.2e-112* | – | 2.6e-07* | 3.0e-03* | 2.8e-01 | 7.7e-10* | 2.9e-04* | 5.8e-02 | 1.9e-81* | 8.8e-78* |
+| MobileNetV2 (fine-tuned) + QAA | 5.1e-98* | 2.6e-07* | – | 1.9e-13* | 1.3e-10* | 8.1e-02 | 3.0e-01 | 3.1e-13* | 1.6e-62* | 3.3e-58* |
+| EfficientNetV2-B0 (fine-tuned) + QAA | 1.2e-118* | 3.0e-03* | 1.9e-13* | – | 5.5e-02 | 2.6e-18* | 1.3e-10* | 3.4e-01 | 1.5e-93* | 1.6e-90* |
+| MobileNetV3-L (fine-tuned) + QAA | 1.4e-115* | 2.8e-01 | 1.3e-10* | 5.5e-02 | – | 2.2e-15* | 2.4e-07* | 3.7e-01 | 4.5e-87* | 3.5e-83* |
+| ResNet50V2 (fine-tuned) + QAA | 8.4e-88* | 7.7e-10* | 8.1e-02 | 2.6e-18* | 2.2e-15* | – | 2.6e-03* | 7.7e-17* | 1.4e-55* | 1.6e-52* |
+| DenseNet121 (fine-tuned) + QAA | 1.3e-100* | 2.9e-04* | 3.0e-01 | 1.3e-10* | 2.4e-07* | 2.6e-03* | – | 7.9e-10* | 7.7e-67* | 2.5e-65* |
+| EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc | 8.7e-121* | 5.8e-02 | 3.1e-13* | 3.4e-01 | 3.7e-01 | 7.7e-17* | 7.9e-10* | – | 3.0e-89* | 1.3e-88* |
+| Handcrafted + Random Forest | 6.9e-04* | 1.9e-81* | 1.6e-62* | 1.5e-93* | 4.5e-87* | 1.4e-55* | 7.7e-67* | 3.0e-89* | – | 3.1e-01 |
+| Handcrafted + SVM | 1.0e-05* | 8.8e-78* | 3.3e-58* | 1.6e-90* | 3.5e-83* | 1.6e-52* | 2.5e-65* | 1.3e-88* | 3.1e-01 | – |

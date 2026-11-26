@@ -83,6 +83,9 @@ function listen() {
   speak([
     { text: `${t('scan.crop')}: ${cropName(prediction.value.crop)}. ${t('scan.result')}: ${condition}. ${t('scan.confidence')} ${percent}%.`, lang: lang.value },
     result.value.low_confidence ? { text: t('scan.lowText', { threshold: threshold.value }), lang: lang.value } : {},
+    qualityIssues.value.length
+      ? { text: qualityIssues.value.map((issue) => t(`scan.quality.${issue}`)).join(' '), lang: lang.value }
+      : {},
     { text: activeItems.value.join(' '), lang: 'en' },
   ])
 }
@@ -109,6 +112,8 @@ function onDrop(event) {
 // ----- what the result panel shows -----
 const prediction = computed(() => result.value?.prediction)
 const advice = computed(() => result.value?.advice)
+// Quality problems found in the photo (too_dark, blurry, ...), each with a retake tip.
+const qualityIssues = computed(() => result.value?.quality?.issues ?? [])
 const tone = computed(() => {
   if (!result.value) return 'good'
   if (result.value.low_confidence) return 'unsure'
@@ -324,6 +329,23 @@ onBeforeUnmount(() => {
             <div>
               <h2 class="text-lg font-bold text-amber">{{ t('scan.lowTitle') }}</h2>
               <p class="mt-1 leading-relaxed text-fog/90">{{ t('scan.lowText', { threshold }) }}</p>
+            </div>
+          </section>
+
+          <!-- the photo is too dark, blurred, grainy, ... : how to retake it -->
+          <section
+            v-if="qualityIssues.length"
+            class="animate-rise flex gap-4 rounded-3xl border border-amber/40 bg-amber/10 p-5 sm:p-6"
+            style="animation-delay: 110ms"
+            data-testid="photo-quality"
+          >
+            <Camera class="mt-0.5 size-7 shrink-0 text-amber" />
+            <div class="min-w-0">
+              <h2 class="text-lg font-bold text-amber">{{ t('scan.qualityTitle') }}</h2>
+              <p class="mt-1 leading-relaxed text-fog/90">{{ t('scan.qualityText') }}</p>
+              <ul class="mt-2 list-disc space-y-1 pl-5 leading-relaxed text-fog/90">
+                <li v-for="issue in qualityIssues" :key="issue">{{ t(`scan.quality.${issue}`) }}</li>
+              </ul>
             </div>
           </section>
 

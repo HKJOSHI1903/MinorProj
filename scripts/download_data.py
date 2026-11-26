@@ -18,6 +18,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 REPO_URL = "https://github.com/spMohanty/PlantVillage-Dataset.git"
@@ -26,9 +27,17 @@ ROOT = Path(__file__).resolve().parents[1]
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png"}
 
 
-def run(*args: str, cwd: Path | None = None) -> None:
+def run(*args: str, cwd: Path | None = None, attempts: int = 8) -> None:
+    """Run a git command, retrying when the connection drops (blobs already fetched are kept)."""
     print("$", " ".join(args), flush=True)
-    subprocess.run(args, cwd=cwd, check=True)
+    for attempt in range(1, attempts + 1):
+        if subprocess.run(args, cwd=cwd).returncode == 0:
+            return
+        if attempt < attempts:
+            wait = min(60, 5 * attempt)
+            print(f"  failed (attempt {attempt}/{attempts}), retrying in {wait}s", flush=True)
+            time.sleep(wait)
+    raise SystemExit(f"Giving up after {attempts} attempts: {' '.join(args)}")
 
 
 def remove_tree(path: Path) -> None:
@@ -55,25 +64,33 @@ def main() -> int:
         return 1
 
     clone = out.parent / "_plantvillage_clone"
-    if clone.exists():
-        remove_tree(clone)
     clone.parent.mkdir(parents=True, exist_ok=True)
 
-    if args.parts == 16:
-        patterns = ["/raw/color/"]
-    else:
-        patterns = []
-        for char in HEX[: args.parts]:
-            patterns.append(f"/raw/color/*/{char}*")
-            if char.isalpha():
-                patterns.append(f"/raw/color/*/{char.upper()}*")
-        # A few classes (e.g. maize common rust) use names like "RS_Rust 1563.JPG".
-        # Fetch all of those and thin them out below.
-        patterns.append("/raw/color/*/[!0-9a-fA-F]*")
+    # One chunk per leading hex character (about 1/16 of the images each), fetched one
+    # after the other, so a dropped connection only costs the chunk in progress.
+    chunks = []
+    for char in HEX[: args.parts]:
+        chunk = [f"/raw/color/*/{char}*"]
+        if char.isalpha():
+            chunk.append(f"/raw/color/*/{char.upper()}*")
+        chunks.append(chunk)
+    # A few classes (e.g. maize common rust) use names like "RS_Rust 1563.JPG".
+    # Fetch all of those and thin them out below.
+    chunks.append(["/raw/color/*/[!0-9a-fA-F]*"])
 
-    run("git", "clone", "--filter=blob:none", "--no-checkout", "--depth", "1", REPO_URL, str(clone))
-    run("git", "sparse-checkout", "set", "--no-cone", *patterns, cwd=clone)
-    run("git", "checkout", cwd=clone)
+    if (clone / ".git").exists():       # an interrupted run's clone keeps the photos already fetched
+        for lock in (clone / ".git").rglob("*.lock"):   # left behind when that run was killed
+            lock.unlink()
+    else:
+        if clone.exists():
+            remove_tree(clone)
+        run("git", "clone", "--filter=blob:none", "--no-checkout", "--depth", "1", REPO_URL, str(clone))
+    active: list[str] = []
+    for number, chunk in enumerate(chunks, 1):
+        active += chunk
+        print(f"Chunk {number}/{len(chunks)}", flush=True)
+        run("git", "sparse-checkout", "set", "--no-cone", *active, cwd=clone)
+        run("git", "checkout", cwd=clone)
 
     out.mkdir(parents=True, exist_ok=True)
     total = 0

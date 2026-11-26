@@ -1,0 +1,13 @@
+{
+  "model": "E8_best_ft_qaa_plantdoc",
+  "tolerance": 0.05,
+  "thresholds": {
+    "min_brightness": 12.26,
+    "max_brightness": 236.25,
+    "max_overexposed": 0.6755,
+    "min_contrast": 6.03,
+    "max_noise": 42.61,
+    "min_sharpness": 27.15,
+    "min_side": 30
+  }
+}

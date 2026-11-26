@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Temperature scaling fitted on the PlantVillage validation set (before $\rightarrow$ after): it fixes lab calibration but worsens field calibration}
+\label{tab:table_calibration}
+\begin{tabular}{lccccccc}
+\toprule
+Model & Temperature & PV ECE & PV answered at 0.7 \% & PV acc. when answered \% & PlantDoc ECE & PlantDoc answered at 0.7 \% & PlantDoc acc. when answered \% \\
+\midrule
+MobileNetV2 (frozen) & 0.505 & 0.150 $\rightarrow$ 0.013 & 71 $\rightarrow$ 91 & 98.8 $\rightarrow$ 96.4 & 0.163 $\rightarrow$ 0.403 & 14 $\rightarrow$ 47 & 47.1 $\rightarrow$ 35.5 \\
+MobileNetV2 (fine-tuned) & 0.579 & 0.094 $\rightarrow$ 0.003 & 98 $\rightarrow$ 99 & 99.7 $\rightarrow$ 99.5 & 0.226 $\rightarrow$ 0.453 & 31 $\rightarrow$ 61 & 50.0 $\rightarrow$ 42.4 \\
+MobileNetV2 (fine-tuned) + QAA & 0.560 & 0.099 $\rightarrow$ 0.003 & 96 $\rightarrow$ 99 & 99.6 $\rightarrow$ 99.2 & 0.188 $\rightarrow$ 0.393 & 31 $\rightarrow$ 66 & 52.1 $\rightarrow$ 43.9 \\
+EfficientNetV2-B0 (fine-tuned) + QAA & 0.519 & 0.094 $\rightarrow$ 0.002 & 99 $\rightarrow$ 100 & 99.9 $\rightarrow$ 99.7 & 0.265 $\rightarrow$ 0.508 & 44 $\rightarrow$ 79 & 51.0 $\rightarrow$ 39.8 \\
+MobileNetV3-L (fine-tuned) + QAA & 0.546 & 0.095 $\rightarrow$ 0.002 & 99 $\rightarrow$ 100 & 99.8 $\rightarrow$ 99.6 & 0.224 $\rightarrow$ 0.460 & 33 $\rightarrow$ 70 & 48.1 $\rightarrow$ 43.3 \\
+ResNet50V2 (fine-tuned) + QAA & 0.539 & 0.095 $\rightarrow$ 0.004 & 95 $\rightarrow$ 99 & 99.7 $\rightarrow$ 98.9 & 0.253 $\rightarrow$ 0.492 & 30 $\rightarrow$ 64 & 46.5 $\rightarrow$ 35.3 \\
+DenseNet121 (fine-tuned) + QAA & 0.499 & 0.101 $\rightarrow$ 0.002 & 95 $\rightarrow$ 99 & 99.8 $\rightarrow$ 99.3 & 0.202 $\rightarrow$ 0.478 & 21 $\rightarrow$ 61 & 55.1 $\rightarrow$ 35.4 \\
+EfficientNetV2-B0 (fine-tuned) + QAA + PlantDoc & 0.547 & 0.095 $\rightarrow$ 0.002 & 99 $\rightarrow$ 100 & 99.9 $\rightarrow$ 99.7 & 0.136 $\rightarrow$ 0.260 & 65 $\rightarrow$ 83 & 74.3 $\rightarrow$ 68.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
